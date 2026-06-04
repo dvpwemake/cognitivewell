@@ -466,28 +466,6 @@
       color: var(--navy);
     }
     
-    .highlight-box {
-      background: var(--paper);
-      border: 1px solid var(--gold-light);
-      border-radius: 20px;
-      padding: 32px;
-      margin-top: 32px;
-    }
-    
-    .highlight-box .kicker {
-      color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 13px;
-    }
-    
-    .highlight-box .big {
-      font-size: 28px;
-      line-height: 1.25;
-      margin: 12px 0;
-      color: var(--navy);
-    }
-    
     /* Programs & Tools */
     .programs-grid {
       display: grid;
@@ -922,6 +900,128 @@
         border-bottom: none;
       }
     }
+
+    /* Side-by-side THE HOPE (1/4) + Video thumb (3/4) layout in Critical Window - professional, same height, aesthetic */
+    .hope-video-split {
+      display: flex;
+      gap: 20px;
+      max-width: 1100px;
+      margin: 32px auto 0;
+      align-items: stretch;
+    }
+    .hope-panel {
+      flex: 0 0 25%;
+      background: var(--paper);
+      border: 1px solid var(--gold-light);
+      border-radius: 20px;
+      padding: 20px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      box-shadow: 0 4px 15px rgba(15,23,42,0.06);
+      box-sizing: border-box;
+    }
+    .hope-panel .kicker {
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      font-size: 11px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    .hope-panel .big {
+      font-size: 15px;
+      line-height: 1.35;
+      color: var(--navy);
+    }
+    .video-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .video-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111 url('https://img.youtube.com/vi/ryk7Hz5D9bo/maxresdefault.jpg') center/cover no-repeat;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      border: 1px solid var(--rule);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: block;
+      box-sizing: border-box;
+    }
+    .video-thumb::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.4));
+      z-index: 1;
+    }
+    .video-thumb:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.15);
+    }
+    .video-thumb .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+      z-index: 2;
+    }
+    .video-thumb:hover .play-icon {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    .video-thumb .play-icon i {
+      margin-left: 3px;
+    }
+    .video-credit-bar {
+      max-width: 1100px;
+      margin: 6px auto 0;
+      display: flex;
+      gap: 20px;
+    }
+    .video-credit-bar .spacer {
+      flex: 0 0 25%;
+    }
+    .video-credit-bar .video-credit {
+      flex: 1;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    /* Responsive: stack on smaller screens */
+    @media (max-width: 900px) {
+      .hope-video-split {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .hope-panel {
+        flex: none;
+        width: 100%;
+      }
+      .video-credit-bar .spacer {
+        display: none;
+      }
+      .video-credit-bar .video-credit {
+        text-align: center;
+      }
+    }
   </style>
 
   <!-- SEO & AI Search Structured Data -->
@@ -1218,9 +1318,20 @@
         </div>
       </div>
 
-      <div class="highlight-box" style="max-width:820px; margin: 24px auto 0;">
-        <div class="kicker" data-i18n="window.hope_kicker">THE HOPE</div>
-        <div class="big" data-i18n="window.hope_text">Up to <span style="color:var(--gold);">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.</div>
+      <div class="hope-video-split">
+        <div class="hope-panel">
+          <div class="kicker" data-i18n="window.hope_kicker">THE HOPE</div>
+          <div class="big" data-i18n="window.hope_text">Up to <span style="color:var(--gold);">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.</div>
+        </div>
+        <div class="video-col">
+          <a class="video-thumb" href="https://youtu.be/ryk7Hz5D9bo" target="_blank" aria-label="Watch Mild Cognitive Impairment (MCI) Dementia Screening Early on YouTube">
+            <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+          </a>
+        </div>
+      </div>
+      <div class="video-credit-bar">
+        <div class="spacer"></div>
+        <div class="video-credit" data-i18n="window.video_credit">AppChurch Global Foundation</div>
       </div>
     </div>
   </section>
@@ -1447,8 +1558,7 @@
     <div class="container">
       <div class="section-header" style="max-width: 100%; text-align: center;">
         <div class="eyebrow" data-i18n="faq.eyebrow">Frequently Asked Questions</div>
-        <h2 data-i18n="faq.title">Common Questions About MCI, Cognitive Wellness &amp; Our Programs</h2>
-        <p data-i18n="faq.subtitle">Clear answers to help you understand mild cognitive impairment, early detection, and how Cognitive Well supports brain health in your community.</p>
+        <h2 data-i18n="faq.title">Common Questions About Dementia and MCI</h2>
       </div>
 
       <div style="max-width: 800px; margin: 0 auto;">
@@ -1600,6 +1710,7 @@
         "window.timeline_title": "THE CRITICAL WINDOW",
         "window.hope_kicker": "THE HOPE",
         "window.hope_text": "Up to <span style=\"color:var(--gold);\">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.",
+        "window.video_credit": "AppChurch Global Foundation",
         "programs.eyebrow": "Our Approach",
         "programs.title": "From free screening to lasting cognitive wellness.",
         "programs.subtitle": "Evidence-informed, community-delivered services designed to meet people where they are — with dignity, accessibility, and hope.",
@@ -1675,8 +1786,7 @@
         "footer.copyright": "© 2019–2026 Cognitive Well. All rights reserved.",
         "footer.initiative": "A community wellness initiative of AppChurch Global Foundation, a 501(c)(3) nonprofit organization.",
         "faq.eyebrow": "Frequently Asked Questions",
-        "faq.title": "Common Questions About MCI, Cognitive Wellness & Our Programs",
-        "faq.subtitle": "Clear answers to help you understand mild cognitive impairment, early detection, and how Cognitive Well supports brain health in your community.",
+        "faq.title": "Common Questions About Dementia and MCI",
         "faq.q1": "What is Mild Cognitive Impairment (MCI)?",
         "faq.a1": "MCI is an intermediate stage between normal cognitive aging and dementia. It involves measurable changes in memory, thinking, or reasoning that are greater than expected for a person’s age but not severe enough to significantly interfere with daily life.",
         "faq.q2": "Can MCI be stopped or reversed?",
@@ -1722,11 +1832,11 @@
         "window.dementia_label": "DEMENCIA",
         "window.dementia_status": "Irreversible<br><strong>Sin Cura</strong>",
         "window.dementia_points": "<li>No hay cura: irreversible una vez desarrollada</li><li>Los tratamientos solo retrasan los síntomas, no pueden revertir</li><li>La línea roja no debe cruzarse</li>",
+        "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "Explorar",
         "footer.connect": "Conectar",
         "faq.eyebrow": "Preguntas Frecuentes",
-        "faq.title": "Preguntas Comunes sobre MCI, Bienestar Cognitivo y Nuestros Programas",
-        "faq.subtitle": "Respuestas claras para ayudarte a entender el deterioro cognitivo leve, la detección temprana y cómo Cognitive Well apoya la salud cerebral en tu comunidad.",
+        "faq.title": "Preguntas Comunes Sobre la Demencia y el MCI",
         "faq.q1": "¿Qué es el Deterioro Cognitivo Leve (MCI)?",
         "faq.a1": "El MCI es una etapa intermedia entre el envejecimiento cognitivo normal y la demencia. Implica cambios medibles en la memoria, el pensamiento o el razonamiento que son mayores de lo esperado para la edad de una persona, pero no lo suficientemente graves como para interferir significativamente en la vida diaria.",
         "faq.q2": "¿Se puede detener o revertir el MCI?",
@@ -1846,11 +1956,11 @@
         "window.dementia_label": "痴呆症",
         "window.dementia_status": "不可逆<br><strong>无药可治</strong>",
         "window.dementia_points": "<li>无治愈方法——一旦发展就不可逆</li><li>治疗只能减缓症状，无法逆转</li><li>这条红线绝不能跨越</li>",
+        "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "探索",
         "footer.connect": "联系",
         "faq.eyebrow": "常见问题",
-        "faq.title": "关于MCI、认知健康和我们项目的常见问题",
-        "faq.subtitle": "清晰的答案，帮助您了解轻度认知障碍、早期检测以及Cognitive Well如何在您的社区支持大脑健康。",
+        "faq.title": "关于痴呆症和MCI的常见问题",
         "faq.q1": "什么是轻度认知障碍？",
         "faq.a1": "轻度认知障碍是正常认知衰老和痴呆症之间的中间阶段。它涉及记忆、思维或推理方面的可测量变化，这些变化大于该年龄段的预期，但不足以严重干扰日常生活。",
         "faq.q2": "轻度认知障碍可以被阻止或逆转吗？",
@@ -1970,11 +2080,11 @@
         "window.dementia_label": "치매",
         "window.dementia_status": "비가역적<br><strong>치료 불가</strong>",
         "window.dementia_points": "<li>치료법 없음 — 일단 발병하면 비가역적</li><li>치료는 증상만 늦출 뿐 역전 불가</li><li>이 빨간 선은 절대 넘지 말아야 함</li>",
+        "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "탐색",
         "footer.connect": "연결",
         "faq.eyebrow": "자주 묻는 질문",
-        "faq.title": "MCI, 인지 웰니스 및 우리 프로그램에 대한 일반적인 질문",
-        "faq.subtitle": "경도 인지 장애, 조기 발견, 그리고 Cognitive Well이 지역사회에서 뇌 건강을 어떻게 지원하는지에 대한 명확한 답변.",
+        "faq.title": "치매와 MCI에 대한 일반적인 질문",
         "faq.q1": "경도 인지 장애(MCI)란 무엇인가요?",
         "faq.a1": "MCI는 정상적인 인지 노화와 치매 사이의 중간 단계입니다. 나이에 비해 기대되는 것보다 큰 기억력, 사고력 또는 추론력의 측정 가능한 변화를 포함하지만 일상생활에 심각하게 지장을 줄 정도는 아닙니다.",
         "faq.q2": "MCI를 멈추거나 되돌릴 수 있나요?",
@@ -2094,11 +2204,11 @@
         "window.dementia_label": "認知症",
         "window.dementia_status": "不可逆<br><strong>治療法なし</strong>",
         "window.dementia_points": "<li>治療法なし — 一度発症すると不可逆</li><li>治療は症状を遅らせるだけで逆転はできない</li><li>この赤い線は絶対に越えてはならない</li>",
+        "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "探索",
         "footer.connect": "接続",
         "faq.eyebrow": "よくある質問",
-        "faq.title": "MCI、認知ウェルネスおよび当プログラムに関するよくある質問",
-        "faq.subtitle": "軽度認知障害、早期発見、およびCognitive Wellが地域社会で脳の健康をどのようにサポートしているかについての明確な回答。",
+        "faq.title": "認知症とMCIに関するよくある質問",
         "faq.q1": "軽度認知障害（MCI）とは何ですか？",
         "faq.a1": "MCIは正常な認知老化と認知症の中間段階です。年齢に対して期待されるよりも大きな記憶力、思考力、または推論力の測定可能な変化を含みますが、日常生活に著しく支障をきたすほどではありません。",
         "faq.q2": "MCIは止めたり逆転させたりできますか？",
@@ -2144,11 +2254,11 @@
         "window.dementia_label": "DÉMENCE",
         "window.dementia_status": "Irréversible<br><strong>Sans Remède</strong>",
         "window.dementia_points": "<li>Pas de remède — irréversible une fois développée</li><li>Les traitements ne font que ralentir les symptômes, ne peuvent pas inverser</li><li>Cette ligne rouge ne doit jamais être franchie</li>",
+        "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "Explorer",
         "footer.connect": "Connecter",
         "faq.eyebrow": "Questions Fréquemment Posées",
-        "faq.title": "Questions Courantes sur le MCI, le Bien-être Cognitif et Nos Programmes",
-        "faq.subtitle": "Réponses claires pour vous aider à comprendre le trouble cognitif léger, la détection précoce et comment Cognitive Well soutient la santé cérébrale dans votre communauté.",
+        "faq.title": "Questions Courantes sur la Démence et le MCI",
         "faq.q1": "Qu'est-ce que le trouble cognitif léger (MCI) ?",
         "faq.a1": "Le MCI est un stade intermédiaire entre le vieillissement cognitif normal et la démence. Il implique des changements mesurables dans la mémoire, la pensée ou le raisonnement qui sont plus importants que prévu pour l'âge d'une personne, mais pas assez graves pour interférer significativement avec la vie quotidienne.",
         "faq.q2": "Le MCI peut-il être arrêté ou inversé ?",
@@ -2203,10 +2313,22 @@
 
       // Store preference
       localStorage.setItem('preferredLang', lang);
+
+      // Re-match heights after translation (in case text length affects layout slightly)
+      matchHopeVideoHeights();
     }
 
     function switchLanguage(lang) {
       applyTranslations(lang);
+    }
+
+    function matchHopeVideoHeights() {
+      const hopePanel = document.querySelector('.hope-panel');
+      const videoThumb = document.querySelector('.video-thumb');
+      if (hopePanel && videoThumb) {
+        // Force hope panel to exactly match the video thumb height for perfect side-by-side
+        hopePanel.style.height = videoThumb.offsetHeight + 'px';
+      }
     }
 
     // Initialize language on load
@@ -2230,11 +2352,23 @@
       // Apply translations after a short delay to ensure all elements (including dynamically added FAQ) are there
       setTimeout(() => {
         applyTranslations(initialLang);
-      }, 100);
+        matchHopeVideoHeights();
+      }, 150);
     }
 
     // Call init after DOM is ready
     initLanguage();
+
+    // Immediate match for initial layout (after flex sizing)
+    setTimeout(matchHopeVideoHeights, 50);
+    setTimeout(matchHopeVideoHeights, 200);
+
+    // Match hope/video heights on resize (for responsive perfection)
+    window.addEventListener('resize', () => {
+      // debounce lightly
+      clearTimeout(window.__heightMatchTimer);
+      window.__heightMatchTimer = setTimeout(matchHopeVideoHeights, 100);
+    });
   </script>
 </body>
 </html>
