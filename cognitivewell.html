@@ -153,6 +153,31 @@
       transform: translateY(-1px);
       box-shadow: 0 4px 14px rgba(176, 136, 40, 0.35);
     }
+
+    .lang-select {
+      position: relative;
+    }
+
+    .lang-select select {
+      background: #f8f5f0;
+      color: #0f172a;
+      border: 1px solid #e2e2e2;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 13px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .lang-select select:hover {
+      border-color: var(--gold);
+    }
+
+    .lang-select select option {
+      background: #f8f5f0;
+      color: #0f172a;
+    }
     
     .mobile-menu-btn {
       display: none;
@@ -1003,18 +1028,18 @@
         <a href="#top" class="logo">
           <img src="img/CognitiveWell_logo.png" alt="Cognitive Well logo - Community cognitive health and wellness initiative">
           <div>
-            <div class="name">Cognitive Well</div>
-            <div class="tag">Community Wellness Initiative</div>
+            <div class="name" data-i18n="nav.logo.name">Cognitive Well</div>
+            <div class="tag" data-i18n="nav.logo.tag">Community Wellness Initiative</div>
           </div>
         </a>
         
         <div class="nav-links" id="nav-links">
-          <a href="#reality">The Reality</a>
-          <a href="#opportunity">The Critical Window</a>
-          <a href="#programs">Our Programs</a>
-          <a href="#get-started">Get Started</a>
-          <a href="#support">Support Us</a>
-          <a href="#about">About</a>
+          <a href="#reality" data-i18n="nav.reality">The Reality</a>
+          <a href="#opportunity" data-i18n="nav.opportunity">The Critical Window</a>
+          <a href="#programs" data-i18n="nav.programs">Our Programs</a>
+          <a href="#get-started" data-i18n="nav.get_started">Get Started</a>
+          <a href="#support" data-i18n="nav.support">Support Us</a>
+          <a href="#about" data-i18n="nav.about">About</a>
         </div>
         
         <div style="display:flex; align-items:center; gap:12px;">
@@ -1022,6 +1047,16 @@
             <i class="fa-solid fa-heart"></i> 
             <span>Donate</span>
           </a>
+          <div class="lang-select">
+            <select id="lang-select" onchange="switchLanguage(this.value)" aria-label="Select language">
+              <option value="en">🇺🇸 English</option>
+              <option value="es">🇪🇸 Español</option>
+              <option value="zh">🇨🇳 中文</option>
+              <option value="ko">🇰🇷 한국어</option>
+              <option value="ja">🇯🇵 日本語</option>
+              <option value="fr">🇫🇷 Français</option>
+            </select>
+          </div>
           <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
       </nav>
@@ -1032,22 +1067,22 @@
   <section id="top" class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow">A COMMUNITY WELLNESS INITIATIVE</div>
-        <h1>Dementia doesn't discriminate, stop it before it catches you.</h1>
-        <p>Free, accessible, and compassionate cognitive health resources for every stage of life. Early awareness changes everything.</p>
+        <div class="hero-eyebrow" data-i18n="hero.eyebrow">A COMMUNITY WELLNESS INITIATIVE</div>
+        <h1 data-i18n="hero.title">Dementia doesn't discriminate, stop it before it catches you.</h1>
+        <p data-i18n="hero.subtitle">Free, accessible, and compassionate cognitive health resources for every stage of life. Early awareness changes everything.</p>
         
         <div class="hero-actions">
           <a href="#get-started" class="btn btn-primary">
             <i class="fa-solid fa-calendar-check"></i> 
-            Get Screened
+            <span data-i18n="hero.cta_screened">Get Screened</span>
           </a>
           <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" class="btn btn-gold">
-            <i class="fa-solid fa-heart"></i> Support Our Mission
+            <i class="fa-solid fa-heart"></i> <span data-i18n="hero.cta_support">Support Our Mission</span>
           </a>
-          <a href="#programs" class="btn btn-outline">Explore Tools</a>
+          <a href="#programs" class="btn btn-outline" data-i18n="hero.cta_tools">Explore Tools</a>
         </div>
         
-        <div style="margin-top: 28px; font-size: 13px; opacity: 0.9;">
+        <div style="margin-top: 28px; font-size: 13px; opacity: 0.9;" data-i18n="hero.championed">
           Championed by <strong>AppChurch Global Foundation</strong> • 501(c)(3)
         </div>
       </div>
@@ -1059,9 +1094,9 @@
   <section id="reality" class="peaceful">
     <div class="container">
       <div class="section-header">
-        <div class="eyebrow">The Reality</div>
-        <h2>Dementia does not discriminate — and the cost is staggering.</h2>
-        <p>Wealth, fame, and status offer no protection. Every family is a candidate, and the burden falls hardest on those least able to carry it.</p>
+        <div class="eyebrow" data-i18n="reality.eyebrow">The Reality</div>
+        <h2 data-i18n="reality.title">Dementia does not discriminate — and the cost is staggering.</h2>
+        <p data-i18n="reality.subtitle">Wealth, fame, and status offer no protection. Every family is a candidate, and the burden falls hardest on those least able to carry it.</p>
       </div>
       
       <div class="reality-grid">
@@ -1101,26 +1136,26 @@
               </div>
             </div>
           </div>
-          <p style="margin-top:16px; font-size:14.5px; color:var(--muted);"><strong>Dementia can strike anyone.</strong> No one is immune.</p>
+          <p style="margin-top:16px; font-size:14.5px; color:var(--muted);" data-i18n="reality.caption"><strong>Dementia can strike anyone.</strong> No one is immune.</p>
         </div>
         
         <!-- Key Stats -->
         <div class="stats-grid">
           <div class="stat-card">
             <div class="stat-num">42<small>%</small></div>
-            <div class="stat-label"><b>Lifetime risk of dementia</b><br>Roughly two in five Americans will develop dementia after age 55.</div>
+            <div class="stat-label" data-i18n="reality.stat1"><strong>Lifetime risk of dementia</strong><br>Roughly two in five Americans will develop dementia after age 55.</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">7.5<small>×</small></div>
-            <div class="stat-label"><b>Higher mortality rate</b><br>Dementia patients die at 7.5 times the rate of cognitively healthy peers.</div>
+            <div class="stat-label" data-i18n="reality.stat2"><strong>Higher mortality rate</strong><br>Dementia patients die at 7.5 times the rate of cognitively healthy peers.</div>
           </div>
           <div class="stat-card">
             <div class="stat-num">$405<small>K</small></div>
-            <div class="stat-label"><b>Average lifetime care cost</b><br>70% paid by families — out of pocket and through unpaid caregiving.</div>
+            <div class="stat-label" data-i18n="reality.stat3"><strong>Average lifetime care cost</strong><br>70% paid by families — out of pocket and through unpaid caregiving.</div>
           </div>
           <div class="stat-card">
             <div class="stat-num" style="font-size:32px; line-height:1;">$2K–$7.5K</div>
-            <div class="stat-label"><b>Cost of full neuropsychological MCI diagnosis</b><br>Out of reach for most families. We are closing that gap.</div>
+            <div class="stat-label" data-i18n="reality.stat4"><strong>Cost of full neuropsychological MCI diagnosis</strong><br>Out of reach for most families. We are closing that gap.</div>
           </div>
         </div>
       </div>
@@ -1131,26 +1166,26 @@
   <section id="opportunity" class="peaceful">
     <div class="container">
       <div class="section-header" style="max-width: 100%;">
-        <div class="eyebrow">The Critical Window</div>
-        <h2>The ONLY window to stop dementia.<br>Yet 92% of Americans miss it.</h2>
-        <p>Mild Cognitive Impairment (MCI) is the critical precursor stage — the only window where timely intervention can still meaningfully change the trajectory. Up to 51% can return to normal cognition with early, consistent action.</p>
+        <div class="eyebrow" data-i18n="window.eyebrow">The Critical Window</div>
+        <h2 data-i18n="window.title">The ONLY window to stop dementia.<br>Yet 92% of Americans miss it.</h2>
+        <p data-i18n="window.subtitle">Mild Cognitive Impairment (MCI) is the critical precursor stage — the only window where timely intervention can still meaningfully change the trajectory. Up to 51% can return to normal cognition with early, consistent action.</p>
       </div>
 
       <!-- Pure CSS Critical Window Animation / Timeline -->
       <div class="timeline-wrapper" style="margin: 40px 0;">
-        <div class="timeline-title" style="text-align:center; font-weight:700; font-size:18px; color:var(--navy); margin-bottom:16px; letter-spacing:0.5px;">THE CRITICAL WINDOW</div>
+        <div class="timeline-title" style="text-align:center; font-weight:700; font-size:18px; color:var(--navy); margin-bottom:16px; letter-spacing:0.5px;" data-i18n="window.timeline_title">THE CRITICAL WINDOW</div>
         
         <div class="timeline">
           <!-- MCI Green Side -->
           <div class="timeline-segment mci">
-            <div class="segment-label">Mild Cognitive Impairment (MCI)</div>
+            <div class="segment-label" data-i18n="window.mci_label">Mild Cognitive Impairment (MCI)</div>
             <div class="segment-bar green"></div>
             <div class="segment-status">
               <span class="icon flash-green">✓</span>
-              <div class="status-text">Stoppable<br><strong>51% Reversible</strong></div>
+              <div class="status-text" data-i18n="window.mci_status">Stoppable<br><strong>51% Reversible</strong></div>
             </div>
             <div class="key-points">
-              <ul>
+              <ul data-i18n="window.mci_points">
                 <li>Only reversible stage — progression can be halted or reversed</li>
                 <li>51% of cases return to normal with early plural interventions</li>
                 <li>92% go undetected until past this window</li>
@@ -1161,19 +1196,19 @@
           <!-- Divider Red Line -->
           <div class="timeline-divider">
             <div class="red-line"></div>
-            <div class="divider-label">POINT OF NO RETURN</div>
+            <div class="divider-label" data-i18n="window.divider">POINT OF NO RETURN</div>
           </div>
 
           <!-- Dementia Red Side -->
           <div class="timeline-segment dementia">
-            <div class="segment-label">DEMENTIA</div>
+            <div class="segment-label" data-i18n="window.dementia_label">DEMENTIA</div>
             <div class="segment-bar red"></div>
             <div class="segment-status">
               <span class="icon flash-red">✗</span>
-              <div class="status-text">Irreversible<br><strong>No Cure</strong></div>
+              <div class="status-text" data-i18n="window.dementia_status">Irreversible<br><strong>No Cure</strong></div>
             </div>
             <div class="key-points">
-              <ul>
+              <ul data-i18n="window.dementia_points">
                 <li>No cure — irreversible once developed</li>
                 <li>Treatments only slow symptoms, cannot reverse</li>
                 <li>The red line must not be crossed</li>
@@ -1184,8 +1219,8 @@
       </div>
 
       <div class="highlight-box" style="max-width:820px; margin: 24px auto 0;">
-        <div class="kicker">THE HOPE</div>
-        <div class="big">Up to <span style="color:var(--gold);">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.</div>
+        <div class="kicker" data-i18n="window.hope_kicker">THE HOPE</div>
+        <div class="big" data-i18n="window.hope_text">Up to <span style="color:var(--gold);">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.</div>
       </div>
     </div>
   </section>
@@ -1195,57 +1230,57 @@
   <section id="programs" class="peaceful">
     <div class="container">
       <div class="section-header">
-        <div class="eyebrow">Our Approach</div>
-        <h2>From free screening to lasting cognitive wellness.</h2>
-        <p>Evidence-informed, community-delivered services designed to meet people where they are — with dignity, accessibility, and hope.</p>
+        <div class="eyebrow" data-i18n="programs.eyebrow">Our Approach</div>
+        <h2 data-i18n="programs.title">From free screening to lasting cognitive wellness.</h2>
+        <p data-i18n="programs.subtitle">Evidence-informed, community-delivered services designed to meet people where they are — with dignity, accessibility, and hope.</p>
       </div>
       
       <div class="programs-grid">
         <div class="program-card">
           <div class="num">01</div>
-          <h3>Free Initial Cognitive Screening</h3>
-          <p>10-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.</p>
-          <div class="pill">FREE • OPEN TO ALL</div>
+          <h3 data-i18n="programs.card1.title">Free Initial Cognitive Screening</h3>
+          <p data-i18n="programs.card1.desc">10-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.</p>
+          <div class="pill" data-i18n="programs.card1.pill">FREE • OPEN TO ALL</div>
         </div>
         
         <div class="program-card">
           <div class="num">02</div>
-          <h3>Full-scale MCI Assessment</h3>
-          <p>Validated most accurate protocols with upto 90% of accuracy, delivered in community settings by trained operators. A fraction of traditional clinical cost.</p>
-          <div class="pill">HIGH ACCURACY</div>
+          <h3 data-i18n="programs.card2.title">Full-scale MCI Assessment</h3>
+          <p data-i18n="programs.card2.desc">Validated most accurate protocols with upto 90% of accuracy, delivered in community settings by trained operators. A fraction of traditional clinical cost.</p>
+          <div class="pill" data-i18n="programs.card2.pill">HIGH ACCURACY</div>
         </div>
         
         <div class="program-card">
           <div class="num">03</div>
-          <h3>Physician Referral &amp; Hand-off</h3>
-          <p>Every participant receives a clear written report they can bring to their own doctor for follow-up and continuity of care.</p>
-          <div class="pill">CLINICAL BRIDGE</div>
+          <h3 data-i18n="programs.card3.title">Physician Referral &amp; Hand-off</h3>
+          <p data-i18n="programs.card3.desc">Every participant receives a clear written report they can bring to their own doctor for follow-up and continuity of care.</p>
+          <div class="pill" data-i18n="programs.card3.pill">CLINICAL BRIDGE</div>
         </div>
         
         <div class="program-card">
           <div class="num">04</div>
-          <h3>Multi-Modal Intervention Support</h3>
-          <p>Practical guidance and interventions across nutrition, cognitive exercise,motor function, and social function — the pillars to help stabilize or reverse MCI.</p>
-          <div class="pill">LIFESTYLE + SUPPORT</div>
+          <h3 data-i18n="programs.card4.title">Multi-Modal Intervention Support</h3>
+          <p data-i18n="programs.card4.desc">Practical guidance and interventions across nutrition, cognitive exercise,motor function, and social function — the pillars to help stabilize or reverse MCI.</p>
+          <div class="pill" data-i18n="programs.card4.pill">LIFESTYLE + SUPPORT</div>
         </div>
       </div>
       
       <!-- Digital Tools Section -->
       <div class="app-links">
-        <h4><i class="fa-solid fa-mobile-screen-button" style="margin-right:8px;"></i> Digital Wellness Tools</h4>
-        <p style="max-width:620px; margin-bottom:16px; color:var(--muted);">Evidence-aligned mobile apps to support daily brain health between community touchpoints.</p>
+        <h4 data-i18n="programs.apps.title"><i class="fa-solid fa-mobile-screen-button" style="margin-right:8px;"></i> Digital Wellness Tools</h4>
+        <p style="max-width:620px; margin-bottom:16px; color:var(--muted);" data-i18n="programs.apps.desc">Evidence-aligned mobile apps to support daily brain health between community touchpoints.</p>
         
         <div class="app-row">
           <a href="https://apps.apple.com/us/app/memory-enhancement/id6762328155" target="_blank" class="app-btn">
             <i class="fa-brands fa-apple"></i>
-            <span><strong>Memory Enhancement</strong><br><span style="font-size:11.5px;opacity:0.85;">Daily cognitive training exercises</span></span>
+            <span><strong data-i18n="programs.app1.name">Memory Enhancement</strong><br><span style="font-size:11.5px;opacity:0.85;" data-i18n="programs.app1.desc">Daily cognitive training exercises</span></span>
           </a>
           <a href="https://apps.apple.com/us/app/motor-function/id6763461844" target="_blank" class="app-btn">
             <i class="fa-brands fa-apple"></i>
-            <span><strong>Motor Function</strong><br><span style="font-size:11.5px;opacity:0.85;">Movement-based neuroplasticity training</span></span>
+            <span><strong data-i18n="programs.app2.name">Motor Function</strong><br><span style="font-size:11.5px;opacity:0.85;" data-i18n="programs.app2.desc">Movement-based neuroplasticity training</span></span>
           </a>
         </div>
-        <div style="margin-top:8px; font-size:12px; color:var(--muted);">Available on the Apple App Store. Complementary to our in-person programs.</div>
+        <div style="margin-top:8px; font-size:12px; color:var(--muted);" data-i18n="programs.apps.note">Available on the Apple App Store. Complementary to our in-person programs.</div>
       </div>
     </div>
   </section>
@@ -1254,9 +1289,9 @@
   <section id="get-started">
     <div class="container">
       <div class="section-header">
-        <div class="eyebrow">How to Get Started</div>
-        <h2>Four simple steps. One critical window.</h2>
-        <p>Early action is the difference between recovery and managed decline. We make it easy, welcoming, and free.</p>
+        <div class="eyebrow" data-i18n="get_started.eyebrow">How to Get Started</div>
+        <h2 data-i18n="get_started.title">Four simple steps. One critical window.</h2>
+        <p data-i18n="get_started.subtitle">Early action is the difference between recovery and managed decline. We make it easy, welcoming, and free.</p>
       </div>
       
       <div style="margin-bottom:22px;">
@@ -1266,33 +1301,33 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h4>Take the free screening</h4>
-          <p>Walk in at a community event. No insurance, no appointment, no cost. It takes about as long as your morning coffee.</p>
+          <h4 data-i18n="get_started.step1.title">Take the free screening</h4>
+          <p data-i18n="get_started.step1.desc">Walk in at a community event. No insurance, no appointment, no cost. It takes about as long as your morning coffee.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h4>Bring your loved ones</h4>
-          <p>Spouses, parents, siblings, friends. The earliest signs are often easiest to notice when families participate together.</p>
+          <h4 data-i18n="get_started.step2.title">Bring your loved ones</h4>
+          <p data-i18n="get_started.step2.desc">Spouses, parents, siblings, friends. The earliest signs are often easiest to notice when families participate together.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h4>Receive your report</h4>
-          <p>You’ll get a clear written summary to share with your physician. We help close the gap between screening and care.</p>
+          <h4 data-i18n="get_started.step3.title">Receive your report</h4>
+          <p data-i18n="get_started.step3.desc">You’ll get a clear written summary to share with your physician. We help close the gap between screening and care.</p>
         </div>
         <div class="step">
           <div class="step-num">4</div>
-          <h4>Continue the journey</h4>
-          <p>Access our digital tools, community resources, and follow-up support. You are not alone.</p>
+          <h4 data-i18n="get_started.step4.title">Continue the journey</h4>
+          <p data-i18n="get_started.step4.desc">Access our digital tools, community resources, and follow-up support. You are not alone.</p>
         </div>
       </div>
       
       <div style="margin-top: 42px;">
         <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-gold" style="padding:18px 36px; font-size:16px;">
           <i class="fa-solid fa-user-plus"></i> 
-          Sign Up for Community Screening
+          <span data-i18n="get_started.signup">Sign Up for Community Screening</span>
         </a>
         
-        <div class="disclaimer">
+        <div class="disclaimer" data-i18n="get_started.disclaimer">
           <strong>Important:</strong> Cognitive Well is a community wellness initiative. Screening and resources are for educational and early-awareness purposes. 
           Cognitive Well collaborates with third-party cognitive health technology providers, for advanced digital assessment and intervention tools. 
           Use of third-party services is subject to their own terms and privacy policies. This is not a substitute for professional medical advice, diagnosis, or treatment. 
@@ -1306,66 +1341,66 @@
   <section id="support" class="peaceful">
     <div class="container">
       <div class="section-header">
-        <div class="eyebrow">Support Our Mission</div>
-        <h2>Together we can reach thousands in the only window that matters.</h2>
+        <div class="eyebrow" data-i18n="support.eyebrow">Support Our Mission</div>
+        <h2 data-i18n="support.title">Together we can reach thousands in the only window that matters.</h2>
       </div>
       
       <!-- Donate (compact, not dominating) -->
       <div style="max-width:620px; margin:0 auto 42px; text-align:center;">
         <div class="support-card" style="padding:22px 28px;">
-          <h3 style="margin-top:0; font-size:22px;">Support Our Work</h3>
-          <p style="color:var(--muted); margin:8px 0 16px; font-size:15px;">Your gift funds free screenings and caregiver support across communities.</p>
+          <h3 style="margin-top:0; font-size:22px;" data-i18n="support.donate.title">Support Our Work</h3>
+          <p style="color:var(--muted); margin:8px 0 16px; font-size:15px;" data-i18n="support.donate.desc">Your gift funds free screenings and caregiver support across communities.</p>
           <a href="https://www.zeffy.com/en-US/donation-form/donate-to-appchurch" target="_blank" class="btn btn-gold" style="padding:12px 28px; font-size:15px; display:inline-flex; width:auto;">
             <i class="fa-solid fa-heart" style="margin-right:8px;"></i> Donate &amp; Support Now
           </a>
-          <div style="font-size:12px; color:var(--muted); margin-top:8px;">100% supports programs through AppChurch Global Foundation • 501(c)(3)</div>
+          <div style="font-size:12px; color:var(--muted); margin-top:8px;" data-i18n="support.donate.note">100% supports programs through AppChurch Global Foundation • 501(c)(3)</div>
         </div>
       </div>
 
-      <h3 style="text-align:center; margin-bottom:20px; color:var(--navy);">Ways to Get Involved</h3>
+      <h3 style="text-align:center; margin-bottom:20px; color:var(--navy);" data-i18n="support.ways_title">Ways to Get Involved</h3>
 
       <div class="support-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px;">
         <!-- Group 1 -->
         <div class="support-card" style="padding:20px;">
           <img src="img/bci2.jpg" alt="Cognitive technology and community partnership for MCI screening and brain health programs" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
-          <strong>Government Agencies &amp; Public Health</strong>
-          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;">Grant funding, referrals, co-led programs, aging services collaboration.</p>
+          <strong data-i18n="support.gov.title">Government Agencies &amp; Public Health</strong>
+          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.gov.desc">Grant funding, referrals, co-led programs, aging services collaboration.</p>
           <div style="display:flex; gap:6px; margin-top:12px;">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;">Explore Collaboration</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Government%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;">Contact Us</a>
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.gov.action">Explore Collaboration</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Government%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.gov.contact">Contact Us</a>
           </div>
         </div>
 
         <!-- Group 2 -->
         <div class="support-card" style="padding:20px;">
           <img src="img/cw2.jpg" alt="Community venue hosts for free cognitive wellness and MCI screening events" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
-          <strong>Venue Hosts &amp; Community Centers</strong>
-          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;">Churches, senior centers, libraries, parks — host screenings and events.</p>
+          <strong data-i18n="support.venue.title">Venue Hosts &amp; Community Centers</strong>
+          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.venue.desc">Churches, senior centers, libraries, parks — host screenings and events.</p>
           <div style="display:flex; gap:6px; margin-top:12px;">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;">Host an Event</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Venue%20Host" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;">Contact Us</a>
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.venue.action">Host an Event</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Venue%20Host" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.venue.contact">Contact Us</a>
           </div>
         </div>
 
         <!-- Group 3 -->
         <div class="support-card" style="padding:20px;">
           <img src="img/bci3.jpg" alt="Innovative partnerships for advanced cognitive health technology and community brain wellness programs" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
-          <strong>Businesses, Foundations &amp; Donors</strong>
-          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;">Corporate giving, sponsorship, employee programs, matching gifts.</p>
+          <strong data-i18n="support.business.title">Businesses, Foundations &amp; Donors</strong>
+          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.business.desc">Corporate giving, sponsorship, employee programs, matching gifts.</p>
           <div style="display:flex; gap:6px; margin-top:12px;">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;">Become a Partner</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Corporate%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;">Contact Us</a>
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.business.action">Become a Partner</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Corporate%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.business.contact">Contact Us</a>
           </div>
         </div>
 
         <!-- Group 4 -->
         <div class="support-card" style="padding:20px;">
           <img src="img/cw4.jpg" alt="Healthcare and senior care collaboration for MCI intervention and cognitive wellness support" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
-          <strong>Healthcare, Senior Care &amp; Operators</strong>
-          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;">Clinical collaboration, referrals, volunteer staffing, co-promotion.</p>
+          <strong data-i18n="support.health.title">Healthcare, Senior Care &amp; Operators</strong>
+          <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.health.desc">Clinical collaboration, referrals, volunteer staffing, co-promotion.</p>
           <div style="display:flex; gap:6px; margin-top:12px;">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;">Collaborate With Us</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Healthcare%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;">Contact Us</a>
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.health.action">Collaborate With Us</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Healthcare%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.health.contact">Contact Us</a>
           </div>
         </div>
       </div>
@@ -1376,32 +1411,32 @@
   <section id="about" style="padding-top:60px; padding-bottom:70px; background:#f4f0e9;">
     <div class="container">
       <div style="max-width:860px; margin:0 auto; text-align:center;">
-        <div class="eyebrow" style="margin-bottom:8px;">The Initiative</div>
-        <h2 style="font-size:32px; margin-bottom:14px;">Cognitive Well</h2>
+        <div class="eyebrow" style="margin-bottom:8px;" data-i18n="about.eyebrow">The Initiative</div>
+        <h2 style="font-size:32px; margin-bottom:14px;" data-i18n="about.title">Cognitive Well</h2>
         
-        <p style="font-size:16.5px; max-width:620px; margin:0 auto 22px; color:#475569;">
+        <p style="font-size:16.5px; max-width:620px; margin:0 auto 22px; color:#475569;" data-i18n="about.desc">
           Cognitive Well is a community based cognitive health and wellness initiative, championed by AppChurch Global Foundation to address the press and imminent needs to prevent, stop and manage degenerative cognitive illness.
         </p>
 
         <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
           <div style="background:white; border:1px solid #e2d9c8; padding:6px 14px; border-radius:999px; font-size:12.5px; display:flex; align-items:center; gap:6px;">
-            <span style="color:var(--gold); font-weight:700;">501(c)(3)</span>
-            <span style="color:#475569;">Tax-exempt • Public benefit since 2020</span>
+            <span style="color:var(--gold); font-weight:700;" data-i18n="about.badge1">501(c)(3)</span>
+            <span style="color:#475569;" data-i18n="about.badge1_text">Tax-exempt • Public benefit since 2020</span>
           </div>
           <div style="background:white; border:1px solid #e2d9c8; padding:6px 14px; border-radius:999px; font-size:12.5px; display:flex; align-items:center; gap:6px;">
-            <span style="color:var(--gold); font-weight:700;">Platform</span>
-            <span style="color:#475569;">Faith • Technology • Community</span>
+            <span style="color:var(--gold); font-weight:700;" data-i18n="about.badge2">Platform</span>
+            <span style="color:#475569;" data-i18n="about.badge2_text">Faith • Technology • Community</span>
           </div>
           <div style="background:white; border:1px solid #e2d9c8; padding:6px 14px; border-radius:999px; font-size:12.5px; display:flex; align-items:center; gap:6px;">
-            <span style="color:var(--gold); font-weight:700;">Network</span>
-            <span style="color:#475569;">Clinical + tech partners in neuroscience</span>
+            <span style="color:var(--gold); font-weight:700;" data-i18n="about.badge3">Network</span>
+            <span style="color:#475569;" data-i18n="about.badge3_text">Clinical + tech partners in neuroscience</span>
           </div>
         </div>
 
         <img src="img/congregation12.jpg" alt="Community members at Cognitive Well MCI screening and cognitive wellness event" style="width:100%; max-width:720px; height:auto; max-height:220px; object-fit:cover; border-radius:14px; margin: 16px auto; display:block; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
 
         <div style="font-size:13px; color:#64748b;">
-          <strong>Founded 2020</strong> — Meeting people where they are, in communities and online. • <a href="https://appchurchglobal.org" target="_blank" style="color:var(--gold);">AppChurch Global Foundation</a>
+          <strong data-i18n="about.founded">Founded 2020</strong> — <span data-i18n="about.founded_text">Meeting people where they are, in communities and online.</span> • <a href="https://appchurchglobal.org" target="_blank" style="color:var(--gold);" data-i18n="about.appchurch">AppChurch Global Foundation</a>
         </div>
       </div>
     </div>
@@ -1411,35 +1446,35 @@
   <section id="faq" class="peaceful" style="padding: 60px 0;">
     <div class="container">
       <div class="section-header" style="max-width: 100%; text-align: center;">
-        <div class="eyebrow">Frequently Asked Questions</div>
-        <h2>Common Questions About MCI, Cognitive Wellness &amp; Our Programs</h2>
-        <p>Clear answers to help you understand mild cognitive impairment, early detection, and how Cognitive Well supports brain health in your community.</p>
+        <div class="eyebrow" data-i18n="faq.eyebrow">Frequently Asked Questions</div>
+        <h2 data-i18n="faq.title">Common Questions About MCI, Cognitive Wellness &amp; Our Programs</h2>
+        <p data-i18n="faq.subtitle">Clear answers to help you understand mild cognitive impairment, early detection, and how Cognitive Well supports brain health in your community.</p>
       </div>
 
       <div style="max-width: 800px; margin: 0 auto;">
         <div style="margin-bottom: 24px;">
-          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);">What is Mild Cognitive Impairment (MCI)?</h3>
-          <p style="color: var(--muted);">MCI is an intermediate stage between normal cognitive aging and dementia. It involves measurable changes in memory, thinking, or reasoning that are greater than expected for a person’s age but not severe enough to significantly interfere with daily life.</p>
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);" data-i18n="faq.q1">What is Mild Cognitive Impairment (MCI)?</h3>
+          <p style="color: var(--muted);" data-i18n="faq.a1">MCI is an intermediate stage between normal cognitive aging and dementia. It involves measurable changes in memory, thinking, or reasoning that are greater than expected for a person’s age but not severe enough to significantly interfere with daily life.</p>
         </div>
 
         <div style="margin-bottom: 24px;">
-          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);">Can MCI be stopped or reversed?</h3>
-          <p style="color: var(--muted);">Yes. Up to <strong>51%</strong> of people with MCI can return to normal cognition when the condition is identified early and addressed with consistent, multi-domain interventions (nutrition, cognitive training, physical activity, social engagement, and sleep optimization).</p>
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);" data-i18n="faq.q2">Can MCI be stopped or reversed?</h3>
+          <p style="color: var(--muted);" data-i18n="faq.a2">Yes. Up to <strong>51%</strong> of people with MCI can return to normal cognition when the condition is identified early and addressed with consistent, multi-domain interventions (nutrition, cognitive training, physical activity, social engagement, and sleep optimization).</p>
         </div>
 
         <div style="margin-bottom: 24px;">
-          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);">How can I get a free cognitive screening?</h3>
-          <p style="color: var(--muted);">Cognitive Well offers free 10-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank">Sign up for community screening</a> or contact us to host an event.</p>
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);" data-i18n="faq.q3">How can I get a free cognitive screening?</h3>
+          <p style="color: var(--muted);" data-i18n="faq.a3">Cognitive Well offers free 10-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank">Sign up for community screening</a> or contact us to host an event.</p>
         </div>
 
         <div style="margin-bottom: 24px;">
-          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);">What makes Cognitive Well different?</h3>
-          <p style="color: var(--muted);">We are a community-first initiative championed by AppChurch Global Foundation (501(c)(3)). Our model combines free accessible screening, evidence-based support, digital tools (Memory Enhancement &amp; Motor Function apps), and direct physician hand-off — all without the high cost or barriers of traditional clinical pathways.</p>
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);" data-i18n="faq.q4">What makes Cognitive Well different?</h3>
+          <p style="color: var(--muted);" data-i18n="faq.a4">We are a community-first initiative championed by AppChurch Global Foundation (501(c)(3)). Our model combines free accessible screening, evidence-based support, digital tools (Memory Enhancement &amp; Motor Function apps), and direct physician hand-off — all without the high cost or barriers of traditional clinical pathways.</p>
         </div>
 
         <div>
-          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);">Is there a cure for dementia?</h3>
-          <p style="color: var(--muted);">There is currently no cure for dementia. However, MCI is the only stage where meaningful intervention can still stop progression or restore function. That is why early detection is critical.</p>
+          <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);" data-i18n="faq.q5">Is there a cure for dementia?</h3>
+          <p style="color: var(--muted);" data-i18n="faq.a5">There is currently no cure for dementia. However, MCI is the only stage where meaningful intervention can still stop progression or restore function. That is why early detection is critical.</p>
         </div>
       </div>
     </div>
@@ -1454,11 +1489,11 @@
             <img src="img/CognitiveWell_logo.png" alt="Cognitive Well logo" style="width:38px;height:38px;">
             <span style="color:white; font-size:20px; font-weight:700;">Cognitive Well</span>
           </div>
-          <p>A community-based cognitive health and wellness initiative. Early awareness. Compassionate support. Lasting hope.</p>
+          <p data-i18n="footer.brand_desc">A community-based cognitive health and wellness initiative. Early awareness. Compassionate support. Lasting hope.</p>
         </div>
         
         <div class="footer-col">
-          <h4>Explore</h4>
+          <h4 data-i18n="footer.explore">Explore</h4>
           <ul>
             <li><a href="#reality">The Reality</a></li>
             <li><a href="#programs">Programs &amp; Tools</a></li>
@@ -1468,7 +1503,7 @@
         </div>
         
         <div class="footer-col">
-          <h4>Connect</h4>
+          <h4 data-i18n="footer.connect">Connect</h4>
           <ul>
             <li><a href="mailto:hello@cognitivewell.org">hello@cognitivewell.org</a></li>
             <li><a href="https://cognitivewell.org">cognitivewell.org</a></li>
@@ -1479,8 +1514,8 @@
       </div>
       
       <div class="footer-bottom">
-        <div>© 2019–2026 Cognitive Well. All rights reserved.</div>
-        <div>A community wellness initiative of AppChurch Global Foundation, a 501(c)(3) nonprofit organization.</div>
+        <div data-i18n="footer.copyright">© 2019–2026 Cognitive Well. All rights reserved.</div>
+        <div data-i18n="footer.initiative">A community wellness initiative of AppChurch Global Foundation, a 501(c)(3) nonprofit organization.</div>
       </div>
       
     </div>
@@ -1525,6 +1560,681 @@
     
     // Keyboard accessibility for mobile menu
     console.log('%c[Cognitive Well] Independent community wellness site loaded.', 'color:#64748B');
+
+    // ============ MULTI-LANGUAGE SUPPORT ============
+    const translations = {
+      en: {
+        "nav.logo.name": "Cognitive Well",
+        "nav.logo.tag": "Community Wellness Initiative",
+        "nav.reality": "The Reality",
+        "nav.opportunity": "The Critical Window",
+        "nav.programs": "Our Programs",
+        "nav.get_started": "Get Started",
+        "nav.support": "Support Us",
+        "nav.about": "About",
+        "hero.eyebrow": "A COMMUNITY WELLNESS INITIATIVE",
+        "hero.title": "Dementia doesn't discriminate, stop it before it catches you.",
+        "hero.subtitle": "Free, accessible, and compassionate cognitive health resources for every stage of life. Early awareness changes everything.",
+        "hero.cta_screened": "Get Screened",
+        "hero.cta_support": "Support Our Mission",
+        "hero.cta_tools": "Explore Tools",
+        "hero.championed": "Championed by <strong>AppChurch Global Foundation</strong> • 501(c)(3)",
+        "reality.eyebrow": "The Reality",
+        "reality.title": "Dementia does not discriminate — and the cost is staggering.",
+        "reality.subtitle": "Wealth, fame, and status offer no protection. Every family is a candidate, and the burden falls hardest on those least able to carry it.",
+        "reality.caption": "<strong>Dementia can strike anyone.</strong> No one is immune.",
+        "reality.stat1": "<strong>Lifetime risk of dementia</strong><br>Roughly two in five Americans will develop dementia after age 55.",
+        "reality.stat2": "<strong>Higher mortality rate</strong><br>Dementia patients die at 7.5 times the rate of cognitively healthy peers.",
+        "reality.stat3": "<strong>Average lifetime care cost</strong><br>70% paid by families — out of pocket and through unpaid caregiving.",
+        "reality.stat4": "<strong>Cost of full neuropsychological MCI diagnosis</strong><br>Out of reach for most families. We are closing that gap.",
+        "window.eyebrow": "The Critical Window",
+        "window.title": "The ONLY window to stop dementia.<br>Yet 92% of Americans miss it.",
+        "window.subtitle": "Mild Cognitive Impairment (MCI) is the critical precursor stage — the only window where timely intervention can still meaningfully change the trajectory. Up to 51% can return to normal cognition with early, consistent action.",
+        "window.mci_label": "Mild Cognitive Impairment (MCI)",
+        "window.mci_status": "Stoppable<br><strong>51% Reversible</strong>",
+        "window.mci_points": "<li>Only reversible stage — progression can be halted or reversed</li><li>51% of cases return to normal with early plural interventions</li><li>92% go undetected until past this window</li>",
+        "window.divider": "POINT OF NO RETURN",
+        "window.dementia_label": "DEMENTIA",
+        "window.dementia_status": "Irreversible<br><strong>No Cure</strong>",
+        "window.dementia_points": "<li>No cure — irreversible once developed</li><li>Treatments only slow symptoms, cannot reverse</li><li>The red line must not be crossed</li>",
+        "window.timeline_title": "THE CRITICAL WINDOW",
+        "window.hope_kicker": "THE HOPE",
+        "window.hope_text": "Up to <span style=\"color:var(--gold);\">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.",
+        "programs.eyebrow": "Our Approach",
+        "programs.title": "From free screening to lasting cognitive wellness.",
+        "programs.subtitle": "Evidence-informed, community-delivered services designed to meet people where they are — with dignity, accessibility, and hope.",
+        "programs.card1.title": "Free Initial Cognitive Screening",
+        "programs.card1.desc": "10-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.",
+        "programs.card1.pill": "FREE • OPEN TO ALL",
+        "programs.card2.title": "Full-scale MCI Assessment",
+        "programs.card2.desc": "Validated most accurate protocols with upto 90% of accuracy, delivered in community settings by trained operators. A fraction of traditional clinical cost.",
+        "programs.card2.pill": "HIGH ACCURACY",
+        "programs.card3.title": "Physician Referral & Hand-off",
+        "programs.card3.desc": "Every participant receives a clear written report they can bring to their own doctor for follow-up and continuity of care.",
+        "programs.card3.pill": "CLINICAL BRIDGE",
+        "programs.card4.title": "Multi-Modal Intervention Support",
+        "programs.card4.desc": "Practical guidance and interventions across nutrition, cognitive exercise,motor function, and social function — the pillars to help stabilize or reverse MCI.",
+        "programs.card4.pill": "LIFESTYLE + SUPPORT",
+        "programs.apps.title": "Digital Wellness Tools",
+        "programs.apps.desc": "Evidence-aligned mobile apps to support daily brain health between community touchpoints.",
+        "programs.app1.name": "Memory Enhancement",
+        "programs.app1.desc": "Daily cognitive training exercises",
+        "programs.app2.name": "Motor Function",
+        "programs.app2.desc": "Movement-based neuroplasticity training",
+        "programs.apps.note": "Available on the Apple App Store. Complementary to our in-person programs.",
+        "get_started.eyebrow": "How to Get Started",
+        "get_started.title": "Four simple steps. One critical window.",
+        "get_started.subtitle": "Early action is the difference between recovery and managed decline. We make it easy, welcoming, and free.",
+        "get_started.step1.title": "Take the free screening",
+        "get_started.step1.desc": "Walk in at a community event. No insurance, no appointment, no cost. It takes about as long as your morning coffee.",
+        "get_started.step2.title": "Bring your loved ones",
+        "get_started.step2.desc": "Spouses, parents, siblings, friends. The earliest signs are often easiest to notice when families participate together.",
+        "get_started.step3.title": "Receive your report",
+        "get_started.step3.desc": "You’ll get a clear written summary to share with your physician. We help close the gap between screening and care.",
+        "get_started.step4.title": "Continue the journey",
+        "get_started.step4.desc": "Access our digital tools, community resources, and follow-up support. You are not alone.",
+        "get_started.signup": "Sign Up for Community Screening",
+        "get_started.disclaimer": "<strong>Important:</strong> Cognitive Well is a community wellness initiative. Screening and resources are for educational and early-awareness purposes. Cognitive Well collaborates with third-party cognitive health technology providers, for advanced digital assessment and intervention tools. Use of third-party services is subject to their own terms and privacy policies. This is not a substitute for professional medical advice, diagnosis, or treatment. Always consult your physician or qualified healthcare provider with any questions you may have regarding a medical condition.",
+        "support.eyebrow": "Support Our Mission",
+        "support.title": "Together we can reach thousands in the only window that matters.",
+        "support.donate.title": "Support Our Work",
+        "support.donate.desc": "Your gift funds free screenings and caregiver support across communities.",
+        "support.donate.note": "100% supports programs through AppChurch Global Foundation • 501(c)(3)",
+        "support.ways_title": "Ways to Get Involved",
+        "support.gov.title": "Government Agencies & Public Health",
+        "support.gov.desc": "Grant funding, referrals, co-led programs, aging services collaboration.",
+        "support.gov.action": "Explore Collaboration",
+        "support.gov.contact": "Contact Us",
+        "support.venue.title": "Venue Hosts & Community Centers",
+        "support.venue.desc": "Churches, senior centers, libraries, parks — host screenings and events.",
+        "support.venue.action": "Host an Event",
+        "support.venue.contact": "Contact Us",
+        "support.business.title": "Businesses, Foundations & Donors",
+        "support.business.desc": "Corporate giving, sponsorship, employee programs, matching gifts.",
+        "support.business.action": "Become a Partner",
+        "support.business.contact": "Contact Us",
+        "support.health.title": "Healthcare, Senior Care & Operators",
+        "support.health.desc": "Clinical collaboration, referrals, volunteer staffing, co-promotion.",
+        "support.health.action": "Collaborate With Us",
+        "support.health.contact": "Contact Us",
+        "about.eyebrow": "The Initiative",
+        "about.title": "Cognitive Well",
+        "about.desc": "Cognitive Well is a community based cognitive health and wellness initiative, championed by AppChurch Global Foundation to address the press and imminent needs to prevent, stop and manage degenerative cognitive illness.",
+        "about.badge1": "501(c)(3)",
+        "about.badge1_text": "Tax-exempt • Public benefit since 2020",
+        "about.badge2": "Platform",
+        "about.badge2_text": "Faith • Technology • Community",
+        "about.badge3": "Network",
+        "about.badge3_text": "Clinical + tech partners in neuroscience",
+        "about.founded": "Founded 2020",
+        "about.founded_text": "Meeting people where they are, in communities and online.",
+        "about.appchurch": "AppChurch Global Foundation",
+        "footer.brand_desc": "A community-based cognitive health and wellness initiative. Early awareness. Compassionate support. Lasting hope.",
+        "footer.explore": "Explore",
+        "footer.connect": "Connect",
+        "footer.copyright": "© 2019–2026 Cognitive Well. All rights reserved.",
+        "footer.initiative": "A community wellness initiative of AppChurch Global Foundation, a 501(c)(3) nonprofit organization.",
+        "faq.eyebrow": "Frequently Asked Questions",
+        "faq.title": "Common Questions About MCI, Cognitive Wellness & Our Programs",
+        "faq.subtitle": "Clear answers to help you understand mild cognitive impairment, early detection, and how Cognitive Well supports brain health in your community.",
+        "faq.q1": "What is Mild Cognitive Impairment (MCI)?",
+        "faq.a1": "MCI is an intermediate stage between normal cognitive aging and dementia. It involves measurable changes in memory, thinking, or reasoning that are greater than expected for a person’s age but not severe enough to significantly interfere with daily life.",
+        "faq.q2": "Can MCI be stopped or reversed?",
+        "faq.a2": "Yes. Up to <strong>51%</strong> of people with MCI can return to normal cognition when the condition is identified early and addressed with consistent, multi-domain interventions (nutrition, cognitive training, physical activity, social engagement, and sleep optimization).",
+        "faq.q3": "How can I get a free cognitive screening?",
+        "faq.a3": "Cognitive Well offers free 10-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Sign up for community screening</a> or contact us to host an event.",
+        "faq.q4": "What makes Cognitive Well different?",
+        "faq.a4": "We are a community-first initiative championed by AppChurch Global Foundation (501(c)(3)). Our model combines free accessible screening, evidence-based support, digital tools (Memory Enhancement & Motor Function apps), and direct physician hand-off — all without the high cost or barriers of traditional clinical pathways.",
+        "faq.q5": "Is there a cure for dementia?",
+        "faq.a5": "There is currently no cure for dementia. However, MCI is the only stage where meaningful intervention can still stop progression or restore function. That is why early detection is critical."
+      },
+      es: {
+        "nav.logo.name": "Bienestar Cognitivo",
+        "nav.logo.tag": "Iniciativa de Bienestar Comunitario",
+        "nav.reality": "La Realidad",
+        "nav.opportunity": "La Ventana Crítica",
+        "nav.programs": "Nuestros Programas",
+        "nav.get_started": "Comenzar",
+        "nav.support": "Apóyanos",
+        "nav.about": "Acerca de",
+        "hero.eyebrow": "UNA INICIATIVA DE BIENESTAR COMUNITARIO",
+        "hero.title": "La demencia no discrimina, deténgala antes de que lo atrape.",
+        "hero.subtitle": "Recursos de salud cognitiva gratuitos, accesibles y compasivos para cada etapa de la vida. La detección temprana lo cambia todo.",
+        "hero.cta_screened": "Hágase la prueba",
+        "hero.cta_support": "Apoye Nuestra Misión",
+        "hero.cta_tools": "Explorar Herramientas",
+        "hero.championed": "Patrocinado por <strong>AppChurch Global Foundation</strong> • 501(c)(3)",
+        "reality.eyebrow": "La Realidad",
+        "reality.title": "La demencia no discrimina — y el costo es asombroso.",
+        "reality.subtitle": "La riqueza, la fama y el estatus no ofrecen protección. Cada familia es candidata, y la carga recae más duramente en quienes menos pueden soportarla.",
+        "reality.caption": "<strong>La demencia puede afectar a cualquiera.</strong> Nadie es inmune.",
+        "reality.stat1": "<strong>Riesgo de por vida de demencia</strong><br>Aproximadamente dos de cada cinco estadounidenses desarrollarán demencia después de los 55 años.",
+        "reality.stat2": "<strong>Tasa de mortalidad más alta</strong><br>Los pacientes con demencia mueren 7,5 veces más rápido que sus pares cognitivamente sanos.",
+        "reality.stat3": "<strong>Costo promedio de por vida por persona</strong><br>El 70% lo pagan las familias — de su bolsillo y mediante cuidados no remunerados.",
+        "reality.stat4": "<strong>Costo de un diagnóstico neuropsicológico completo de MCI</strong><br>Fuera del alcance de la mayoría de las familias. Estamos cerrando esa brecha.",
+        "window.eyebrow": "La Ventana Crítica",
+        "window.title": "La ÚNICA ventana para detener la demencia.<br>Sin embargo, el 92% de los estadounidenses la pierden.",
+        "window.subtitle": "El Deterioro Cognitivo Leve (MCI) es la etapa precursora crítica: la única ventana donde una intervención oportuna aún puede cambiar significativamente la trayectoria. Hasta el 51% puede volver a la cognición normal con acción temprana y consistente.",
+        "window.mci_label": "Deterioro Cognitivo Leve (MCI)",
+        "window.mci_status": "Detenible<br><strong>51% Reversible</strong>",
+        "window.mci_points": "<li>La única etapa reversible: la progresión puede detenerse o revertirse</li><li>El 51% de los casos vuelve a la normalidad con intervenciones plurales tempranas</li><li>El 92% no se detecta hasta que se pasa esta ventana</li>",
+        "window.divider": "PUNTO DE NO RETORNO",
+        "window.dementia_label": "DEMENCIA",
+        "window.dementia_status": "Irreversible<br><strong>Sin Cura</strong>",
+        "window.dementia_points": "<li>No hay cura: irreversible una vez desarrollada</li><li>Los tratamientos solo retrasan los síntomas, no pueden revertir</li><li>La línea roja no debe cruzarse</li>",
+        "footer.explore": "Explorar",
+        "footer.connect": "Conectar",
+        "faq.eyebrow": "Preguntas Frecuentes",
+        "faq.title": "Preguntas Comunes sobre MCI, Bienestar Cognitivo y Nuestros Programas",
+        "faq.subtitle": "Respuestas claras para ayudarte a entender el deterioro cognitivo leve, la detección temprana y cómo Cognitive Well apoya la salud cerebral en tu comunidad.",
+        "faq.q1": "¿Qué es el Deterioro Cognitivo Leve (MCI)?",
+        "faq.a1": "El MCI es una etapa intermedia entre el envejecimiento cognitivo normal y la demencia. Implica cambios medibles en la memoria, el pensamiento o el razonamiento que son mayores de lo esperado para la edad de una persona, pero no lo suficientemente graves como para interferir significativamente en la vida diaria.",
+        "faq.q2": "¿Se puede detener o revertir el MCI?",
+        "faq.a2": "Sí. Hasta el <strong>51%</strong> de las personas con MCI pueden volver a una cognición normal cuando la condición se identifica temprano y se aborda con intervenciones consistentes y multidominio (nutrición, entrenamiento cognitivo, actividad física, compromiso social y optimización del sueño).",
+        "faq.q3": "¿Cómo puedo obtener un screening cognitivo gratuito?",
+        "faq.a3": "Cognitive Well ofrece screenings iniciales gratuitos de 10 minutos en ubicaciones comunitarias (iglesias, centros para personas mayores, bibliotecas). No se requiere cita ni seguro. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Regístrate para un screening comunitario</a> o contáctanos para organizar un evento.",
+        "faq.q4": "¿Qué hace diferente a Cognitive Well?",
+        "faq.a4": "Somos una iniciativa comunitaria de primera línea impulsada por AppChurch Global Foundation (501(c)(3)). Nuestro modelo combina screening gratuito y accesible, apoyo basado en evidencia, herramientas digitales (aplicaciones Memory Enhancement y Motor Function) y derivación directa al médico, todo sin el alto costo o las barreras de las vías clínicas tradicionales.",
+        "faq.q5": "¿Existe una cura para la demencia?",
+        "faq.a5": "Actualmente no existe una cura para la demencia. Sin embargo, el MCI es la única etapa en la que una intervención significativa aún puede detener la progresión o restaurar la función. Por eso la detección temprana es crítica.",
+        "programs.eyebrow": "Nuestro Enfoque",
+        "programs.title": "Del screening gratuito al bienestar cognitivo duradero.",
+        "programs.subtitle": "Servicios informados por evidencia, entregados a nivel comunitario, diseñados para encontrar a las personas donde están — con dignidad, accesibilidad y esperanza.",
+        "programs.card1.title": "Screening Cognitivo Inicial Gratuito",
+        "programs.card1.desc": "Screening inicial rápido de 10 minutos para condicionamiento cognitivo. No se requiere cita ni seguro.",
+        "programs.card1.pill": "GRATIS • ABIERTO A TODOS",
+        "programs.card2.title": "Evaluación MCI de Escala Completa",
+        "programs.card2.desc": "Protocolos validados más precisos con hasta 90% de precisión, entregados en entornos comunitarios por operadores capacitados. Una fracción del costo clínico tradicional.",
+        "programs.card2.pill": "ALTA PRECISIÓN",
+        "programs.card3.title": "Derivación y Entrega al Médico",
+        "programs.card3.desc": "Cada participante recibe un informe escrito claro que puede llevar a su propio médico para seguimiento y continuidad de atención.",
+        "programs.card3.pill": "PUENTE CLÍNICO",
+        "programs.card4.title": "Apoyo de Intervención Multi-Modal",
+        "programs.card4.desc": "Orientación práctica e intervenciones en nutrición, ejercicio cognitivo, función motora y función social — los pilares para ayudar a estabilizar o revertir el MCI.",
+        "programs.card4.pill": "ESTILO DE VIDA + APOYO",
+        "programs.apps.title": "Herramientas Digitales de Bienestar",
+        "programs.apps.desc": "Aplicaciones móviles alineadas con evidencia para apoyar la salud cerebral diaria entre los puntos de contacto comunitarios.",
+        "programs.app1.name": "Mejora de la Memoria",
+        "programs.app1.desc": "Ejercicios diarios de entrenamiento cognitivo",
+        "programs.app2.name": "Función Motora",
+        "programs.app2.desc": "Entrenamiento de neuroplasticidad basado en movimiento",
+        "programs.apps.note": "Disponible en la Apple App Store. Complementario a nuestros programas presenciales.",
+        "get_started.eyebrow": "Cómo Comenzar",
+        "get_started.title": "Cuatro pasos simples. Una ventana crítica.",
+        "get_started.subtitle": "La acción temprana es la diferencia entre la recuperación y el declive gestionado. Lo hacemos fácil, acogedor y gratuito.",
+        "get_started.step1.title": "Haga el screening gratuito",
+        "get_started.step1.desc": "Entre en un evento comunitario. Sin seguro, sin cita, sin costo. Toma aproximadamente lo mismo que su café de la mañana.",
+        "get_started.step2.title": "Traiga a sus seres queridos",
+        "get_started.step2.desc": "Cónyuges, padres, hermanos, amigos. Los primeros signos a menudo son más fáciles de notar cuando las familias participan juntas.",
+        "get_started.step3.title": "Reciba su informe",
+        "get_started.step3.desc": "Recibirá un resumen escrito claro para compartir con su médico. Le ayudamos a cerrar la brecha entre el screening y la atención.",
+        "get_started.step4.title": "Continúe el viaje",
+        "get_started.step4.desc": "Acceda a nuestras herramientas digitales, recursos comunitarios y apoyo de seguimiento. No está solo.",
+        "get_started.signup": "Regístrese para Screening Comunitario",
+        "get_started.disclaimer": "<strong>Importante:</strong> Cognitive Well es una iniciativa de bienestar comunitario. El screening y los recursos son para fines educativos y de concienciación temprana. Cognitive Well colabora con proveedores de tecnología de salud cognitiva de terceros para herramientas avanzadas de evaluación e intervención digital. El uso de servicios de terceros está sujeto a sus propios términos y políticas de privacidad. Esto no es un sustituto del consejo médico profesional, diagnóstico o tratamiento. Siempre consulte a su médico o proveedor de atención médica calificado con cualquier pregunta que pueda tener con respecto a una condición médica.",
+        "support.eyebrow": "Apoye Nuestra Misión",
+        "support.title": "Juntos podemos alcanzar a miles en la única ventana que importa.",
+        "support.donate.title": "Apoye Nuestro Trabajo",
+        "support.donate.desc": "Su donación financia screenings gratuitos y apoyo a cuidadores en comunidades.",
+        "support.donate.note": "El 100% apoya programas a través de AppChurch Global Foundation • 501(c)(3)",
+        "support.ways_title": "Formas de Involucrarse",
+        "support.gov.title": "Agencias Gubernamentales y Salud Pública",
+        "support.gov.desc": "Financiamiento de subvenciones, referencias, programas co-liderados, colaboración en servicios de envejecimiento.",
+        "support.gov.action": "Explorar Colaboración",
+        "support.gov.contact": "Contáctenos",
+        "support.venue.title": "Anfitriones de Sedes y Centros Comunitarios",
+        "support.venue.desc": "Iglesias, centros para personas mayores, bibliotecas, parques — organicen screenings y eventos.",
+        "support.venue.action": "Organizar un Evento",
+        "support.venue.contact": "Contáctenos",
+        "support.business.title": "Empresas, Fundaciones y Donantes",
+        "support.business.desc": "Donaciones corporativas, patrocinios, programas de empleados, donaciones equivalentes.",
+        "support.business.action": "Convertirse en Socio",
+        "support.business.contact": "Contáctenos",
+        "support.health.title": "Salud, Cuidado de Mayores y Operadores",
+        "support.health.desc": "Colaboración clínica, referencias, personal voluntario, co-promoción.",
+        "support.health.action": "Colaborar con Nosotros",
+        "support.health.contact": "Contáctenos",
+        "about.eyebrow": "La Iniciativa",
+        "about.title": "Bienestar Cognitivo",
+        "about.desc": "Bienestar Cognitivo es una iniciativa comunitaria de salud cognitiva y bienestar, impulsada por AppChurch Global Foundation para abordar las necesidades urgentes e inminentes de prevenir, detener y gestionar la enfermedad cognitiva degenerativa.",
+        "about.badge1": "501(c)(3)",
+        "about.badge1_text": "Sin fines de lucro exento de impuestos • Beneficio público desde 2020",
+        "about.badge2": "Plataforma",
+        "about.badge2_text": "Fe • Tecnología • Comunidad",
+        "about.badge3": "Red",
+        "about.badge3_text": "Socios clínicos y tecnológicos en neurociencia",
+        "about.founded": "Fundado en 2020",
+        "about.founded_text": "Encontrando a las personas donde están — en comunidades y en línea.",
+        "about.appchurch": "AppChurch Global Foundation",
+        "footer.brand_desc": "Una iniciativa comunitaria de salud cognitiva y bienestar. Conciencia temprana. Apoyo compasivo. Esperanza duradera.",
+        "footer.explore": "Explorar",
+        "footer.connect": "Conectar",
+        "footer.copyright": "© 2019–2026 Cognitive Well. Todos los derechos reservados.",
+        "footer.initiative": "Una iniciativa de bienestar comunitario de AppChurch Global Foundation, una organización sin fines de lucro 501(c)(3)."
+      },
+      zh: {
+        "nav.logo.name": "认知健康",
+        "nav.logo.tag": "社区健康倡议",
+        "nav.reality": "现实情况",
+        "nav.opportunity": "关键窗口期",
+        "nav.programs": "我们的项目",
+        "nav.get_started": "开始行动",
+        "nav.support": "支持我们",
+        "nav.about": "关于我们",
+        "hero.eyebrow": "社区健康倡议",
+        "hero.title": "痴呆症不分高低贵贱，扼住命运的咽喉防患于未然。",
+        "hero.subtitle": "为不同人生阶段提供适用、且符合您经济能力的认知健康防治资源。治未病于未然。",
+        "hero.cta_screened": "获得筛查",
+        "hero.cta_support": "支持🙏捐赠",
+        "hero.cta_tools": "实用防治",
+        "hero.championed": "由 <strong>AppChurch Global Foundation</strong> 倡导 • 501(c)(3)",
+        "reality.eyebrow": "关于痴呆症的科学真相",
+        "reality.title": "痴呆症面前众生平等，无论高低贵贱。",
+        "reality.subtitle": "无论财富、名声和地位多高，都无法豁免痴呆症的降临。每个家庭都可能成为受害者，负担最重的往往是那些最无力承担的人。",
+        "reality.caption": "<strong>老年痴呆症可能随时降临在任何人身上。</strong> 无论高低贵贱，无可豁免。",
+        "reality.stat1": "<strong>终身痴呆症患病风险</strong><br>大约五分之二的美国人在55岁后会患上痴呆症。",
+        "reality.stat2": "<strong>死亡率大幅增高</strong><br>痴呆症患者的死亡率是同龄人的7.5倍以上。",
+        "reality.stat3": "<strong>人均终身护理成本</strong><br>超过70%费用由病人家庭自付承担，医保支付非常有限。",
+        "reality.stat4": "<strong>全面神经心理学MCI诊断成本</strong><br>大多数家庭无法负担。我们正在缩小这一差距。",
+        "window.eyebrow": "关键窗口期",
+        "window.title": "阻止痴呆症的唯一窗口期。<br>然而92%的美国人错过了它。",
+        "window.subtitle": "轻度认知障碍（MCI）是老年痴呆症的早期阶段，也是唯一可以进行及时干预仍能显著改变病程轨迹的黄金窗口期。通过早期的及时筛查与干预，多达51%的临床病例可以恢复正常认知。",
+        "window.mci_label": "轻度认知障碍（MCI）",
+        "window.mci_status": "可阻止<br><strong>51%可逆转</strong>",
+        "window.mci_points": "<li>唯一可逆阶段——进展可以被阻止或逆转</li><li>通过早期多元干预，51%的病例可恢复正常</li><li>92%的美国人错过了这个窗口期而未经筛查</li>",
+        "window.divider": "不归点",
+        "window.dementia_label": "痴呆症",
+        "window.dementia_status": "不可逆<br><strong>无药可治</strong>",
+        "window.dementia_points": "<li>无治愈方法——一旦发展就不可逆</li><li>治疗只能减缓症状，无法逆转</li><li>这条红线绝不能跨越</li>",
+        "footer.explore": "探索",
+        "footer.connect": "联系",
+        "faq.eyebrow": "常见问题",
+        "faq.title": "关于MCI、认知健康和我们项目的常见问题",
+        "faq.subtitle": "清晰的答案，帮助您了解轻度认知障碍、早期检测以及Cognitive Well如何在您的社区支持大脑健康。",
+        "faq.q1": "什么是轻度认知障碍？",
+        "faq.a1": "轻度认知障碍是正常认知衰老和痴呆症之间的中间阶段。它涉及记忆、思维或推理方面的可测量变化，这些变化大于该年龄段的预期，但不足以严重干扰日常生活。",
+        "faq.q2": "轻度认知障碍可以被阻止或逆转吗？",
+        "faq.a2": "是的。当病情被早期发现并通过一致的多领域干预（营养、认知训练、身体活动、社会参与和睡眠优化）时，高达 <strong>51%</strong> 的患者可以恢复正常认知。",
+        "faq.q3": "我如何获得免费的认知筛查？",
+        "faq.a3": "Cognitive Well在社区场所（教堂、老年中心、图书馆）提供免费的10分钟初始筛查。无需预约或保险。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">注册社区筛查</a>或联系我们举办活动。",
+        "faq.q4": "Cognitive Well有什么不同？",
+        "faq.a4": "我们是由AppChurch Global Foundation（501(c)(3)）发起的社区认知健康项目服务。我们的模式结合了免费粗筛、平价精确筛查、基于临床有效案例的数字化认知健复工具（Memory Enhancement和Motor Function应用程序）以及进一步的专业医生转诊。帮助您厘清困惑，跨越昂贵的认知、金钱及时间障碍，抓住不可错过的黄金窗口期，治重疾于未病。",
+        "faq.q5": "痴呆症有治愈方法吗？",
+        "faq.a5": "目前，一旦进入老年痴呆阶段就没有可治愈的药物。然而，在认知下降的早期，未进入痴呆症前的轻度认知障碍阶段是具有重要意义的关键黄金窗口期，此时进行及时有效的干预仍然可以阻止认知退化，不滑向老年痴呆。早期检测至关重要！",
+        "programs.eyebrow": "我们的方法",
+        "programs.title": "从免费筛查到持久的认知健康维护。",
+        "programs.subtitle": "专业的社区服务，满足社区大众认知健康的需求，并保障隐私。",
+        "programs.card1.title": "免费初始认知健康初步筛查",
+        "programs.card1.desc": "10分钟快速粗筛。无需预约或保险。",
+        "programs.card1.pill": "免费 • 向所有人开放",
+        "programs.card2.title": "全面认知退化评估",
+        "programs.card2.desc": "目前全球范围内认知健康专业测试最准确的筛查方法，准确率高达90%，由持照专员提供平价的筛查检测。",
+        "programs.card2.pill": "高准确率",
+        "programs.card3.title": "医生转介与推荐",
+        "programs.card3.desc": "每位参与者都会收到一份给您的家庭医生的清晰的报告，可作为家庭医生进行后续转诊及护理的参考依据。",
+        "programs.card3.pill": "临床桥梁",
+        "programs.card4.title": "多模式干预支持",
+        "programs.card4.desc": "在营养、认知锻炼、运动功能和社会功能方面的实用指导和干预 — 帮助稳定或逆转轻度认知障碍的支柱。",
+        "programs.card4.pill": "生活方式 + 支持",
+        "programs.apps.title": "数字健康工具",
+        "programs.apps.desc": "基于临床有效结果的移动应用APP，在社区网点进行日常认知健康训练。",
+        "programs.app1.name": "记忆增强",
+        "programs.app1.desc": "日常认知训练",
+        "programs.app2.name": "运动功能",
+        "programs.app2.desc": "基于运动的神经可塑性训练",
+        "programs.apps.note": "可在Apple App Store上获取。是我们面对面程序的补充。",
+        "get_started.eyebrow": "如何开始",
+        "get_started.title": "四个简单步骤。一个关键窗口。",
+        "get_started.subtitle": "早发现早行动是防治认知衰退的关键。我们让它变得简单易行、破除医疗服务的重重障碍。",
+        "get_started.step1.title": "进行免费筛查",
+        "get_started.step1.desc": "走进社区活动。无需保险、无需预约、无成本。大约只需喝杯早咖啡的时间。",
+        "get_started.step2.title": "带上您的亲人",
+        "get_started.step2.desc": "配偶、父母、兄弟姐妹、朋友。当家人一起参与时，最早的迹象往往最容易被注意到。",
+        "get_started.step3.title": "收到您的报告",
+        "get_started.step3.desc": "您将收到一份清晰的书面摘要，可与您的医生分享。我们帮助弥合筛查与护理之间的差距。",
+        "get_started.step4.title": "继续旅程",
+        "get_started.step4.desc": "访问我们的数字工具、社区资源和后续支持。您并不孤单。",
+        "get_started.signup": "报名参加社区筛查",
+        "get_started.disclaimer": "<strong>重要提示：</strong> Cognitive Well 是一个社区健康倡议。筛查和资源仅用于教育和早期意识目的。Cognitive Well 与第三方认知健康技术提供商合作，提供先进的数字评估和干预工具。使用第三方服务受其自身条款和隐私政策的约束。不代替专业医疗建议、诊断或治疗。如有任何医疗问题，请始终咨询您的医生或合格的医疗保健提供者。",
+        "support.eyebrow": "支持我们的使命",
+        "support.title": "同心协力抓住认知健康的黄金窗口期，帮助千百万社区大众。",
+        "support.donate.title": "支持我们的工作",
+        "support.donate.desc": "您的捐赠将资助我们的免费社区筛查和医护人员的工作。",
+        "support.donate.note": "100% 通过 AppChurch Global Foundation 支持项目 • 501(c)(3)",
+        "support.ways_title": "参与方式",
+        "support.gov.title": "政府机构与公共卫生",
+        "support.gov.desc": "赠款资助、转介、联合领导项目、老龄服务合作。",
+        "support.gov.action": "探索合作",
+        "support.gov.contact": "联系我们",
+        "support.venue.title": "场地主办方与社区中心",
+        "support.venue.desc": "教堂、老年中心、图书馆、公园 — 主办筛查和活动。",
+        "support.venue.action": "主办活动",
+        "support.venue.contact": "联系我们",
+        "support.business.title": "企业、基金会与捐赠者",
+        "support.business.desc": "企业捐赠、赞助、员工计划、配套捐赠。",
+        "support.business.action": "成为合作伙伴",
+        "support.business.contact": "联系我们",
+        "support.health.title": "医疗保健、老年护理与运营商",
+        "support.health.desc": "临床合作、转介、志愿者人员、联合推广。",
+        "support.health.action": "与我们合作",
+        "support.health.contact": "联系我们",
+        "about.eyebrow": "倡议",
+        "about.title": "认知健康",
+        "about.desc": "CognitiveWell是一个由AppChurch Global Foundation发起的，以应对预防、阻止退行性认知疾病的紧迫和迫切需求的社区认知健康非盈利项目。",
+        "about.badge1": "501(c)(3)",
+        "about.badge1_text": "非营利机构 • 始创自2020年",
+        "about.badge2": "平台",
+        "about.badge2_text": "信仰 • 技术 • 社区",
+        "about.badge3": "网络",
+        "about.badge3_text": "神经科学临床和技术合作伙伴",
+        "about.founded": "成立于2020年",
+        "about.founded_text": "在社区和在线上满足人们的需求。",
+        "about.appchurch": "AppChurch Global Foundation",
+        "footer.brand_desc": "一个基于社区的认知健康和福祉倡议。早期意识。富有同情心的支持。持久的希望。",
+        "footer.explore": "探索",
+        "footer.connect": "联系",
+        "footer.copyright": "© 2019–2026 Cognitive Well. 版权所有。",
+        "footer.initiative": "AppChurch Global Foundation 的社区福祉倡议，一家501(c)(3)非营利组织。"
+      },
+      ko: {
+        "nav.logo.name": "인지 웰니스",
+        "nav.logo.tag": "커뮤니티 웰니스 이니셔티브",
+        "nav.reality": "현실",
+        "nav.opportunity": "결정적 창",
+        "nav.programs": "우리의 프로그램",
+        "nav.get_started": "시작하기",
+        "nav.support": "지원하기",
+        "nav.about": "소개",
+        "hero.eyebrow": "커뮤니티 웰니스 이니셔티브",
+        "hero.title": "치매는 차별하지 않습니다. 걸리기 전에 막으세요.",
+        "hero.subtitle": "인생의 모든 단계에 걸쳐 무료로 접근 가능하고 자비로운 인지 건강 자원을 제공합니다. 조기 인식이 모든 것을 바꿉니다.",
+        "hero.cta_screened": "검사 받기",
+        "hero.cta_support": "우리의 사명 지원",
+        "hero.cta_tools": "도구 탐색",
+        "hero.championed": "<strong>AppChurch Global Foundation</strong>이 주도 • 501(c)(3)",
+        "reality.eyebrow": "현실",
+        "reality.title": "치매는 차별하지 않습니다 — 그 비용은 엄청납니다.",
+        "reality.subtitle": "부, 명성, 지위는 보호를 제공하지 않습니다. 모든 가족이 후보자이며, 부담은 가장 감당하기 어려운 사람들에게 가장 무겁게 떨어집니다.",
+        "reality.caption": "<strong>치매는 누구에게나 닥칠 수 있습니다.</strong> 아무도 면역이 없습니다.",
+        "reality.stat1": "<strong>평생 치매 위험</strong><br>약 5명 중 2명의 미국인이 55세 이후 치매에 걸립니다.",
+        "reality.stat2": "<strong>더 높은 사망률</strong><br>치매 환자는 인지적으로 건강한 동년배보다 7.5배 더 빨리 사망합니다.",
+        "reality.stat3": "<strong>1인당 평균 평생 돌봄 비용</strong><br>70%가 가족이 부담 — 본인 부담금과 무급 돌봄을 통해.",
+        "reality.stat4": "<strong>전체 신경심리학적 MCI 진단 비용</strong><br>대부분의 가족이 감당하기 어렵습니다. 우리는 그 격차를 좁히고 있습니다.",
+        "window.eyebrow": "결정적 창",
+        "window.title": "치매를 막을 수 있는 유일한 창.<br>그런데 미국인의 92%가 놓칩니다.",
+        "window.subtitle": "경도 인지 장애(MCI)는 결정적 전구 단계입니다. 적시에 개입하면 여전히 궤도를 의미 있게 바꿀 수 있는 유일한 창입니다. 조기 일관된 행동으로 최대 51%가 정상 인지로 돌아갈 수 있습니다.",
+        "window.mci_label": "경도 인지 장애 (MCI)",
+        "window.mci_status": "저지 가능<br><strong>51% 역전 가능</strong>",
+        "window.mci_points": "<li>유일한 역전 가능 단계 — 진행을 멈추거나 역전시킬 수 있음</li><li>조기 복합 개입으로 51% 사례가 정상으로 회복</li><li>92%가 이 창을 지나칠 때까지 발견되지 않음</li>",
+        "window.divider": "돌이킬 수 없는 지점",
+        "window.dementia_label": "치매",
+        "window.dementia_status": "비가역적<br><strong>치료 불가</strong>",
+        "window.dementia_points": "<li>치료법 없음 — 일단 발병하면 비가역적</li><li>치료는 증상만 늦출 뿐 역전 불가</li><li>이 빨간 선은 절대 넘지 말아야 함</li>",
+        "footer.explore": "탐색",
+        "footer.connect": "연결",
+        "faq.eyebrow": "자주 묻는 질문",
+        "faq.title": "MCI, 인지 웰니스 및 우리 프로그램에 대한 일반적인 질문",
+        "faq.subtitle": "경도 인지 장애, 조기 발견, 그리고 Cognitive Well이 지역사회에서 뇌 건강을 어떻게 지원하는지에 대한 명확한 답변.",
+        "faq.q1": "경도 인지 장애(MCI)란 무엇인가요?",
+        "faq.a1": "MCI는 정상적인 인지 노화와 치매 사이의 중간 단계입니다. 나이에 비해 기대되는 것보다 큰 기억력, 사고력 또는 추론력의 측정 가능한 변화를 포함하지만 일상생활에 심각하게 지장을 줄 정도는 아닙니다.",
+        "faq.q2": "MCI를 멈추거나 되돌릴 수 있나요?",
+        "faq.a2": "네. MCI 환자의 최대 <strong>51%</strong>는 조기에 발견하여 일관된 다중 영역 개입(영양, 인지 훈련, 신체 활동, 사회적 참여, 수면 최적화)으로 정상 인지로 돌아갈 수 있습니다.",
+        "faq.q3": "무료 인지 검사를 받으려면 어떻게 해야 하나요?",
+        "faq.a3": "Cognitive Well은 지역사회 장소(교회, 노인 센터, 도서관)에서 무료 10분 초기 검사를 제공합니다. 예약이나 보험이 필요 없습니다. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">지역사회 검사 등록</a> 또는 이벤트를 주최하려면 저희에게 연락하세요.",
+        "faq.q4": "Cognitive Well은 무엇이 다른가요?",
+        "faq.a4": "우리는 AppChurch Global Foundation(501(c)(3))이 주도하는 커뮤니티 중심의 인지 건강 이니셔티브입니다. 우리의 모델은 무료 접근 가능한 검사, 증거 기반 지원, 디지털 도구(Memory Enhancement 및 Motor Function 앱), 직접적인 의사 인계 등을 결합하여 전통적인 임상 경로의 높은 비용이나 장벽 없이 제공합니다.",
+        "faq.q5": "치매에 대한 치료법이 있나요?",
+        "faq.a5": "현재 치매에 대한 치료법은 없습니다. 그러나 MCI는 의미 있는 개입이 여전히 진행을 멈추거나 기능을 회복할 수 있는 유일한 단계입니다. 그래서 조기 발견이 중요합니다.",
+        "programs.eyebrow": "우리의 접근 방식",
+        "programs.title": "무료 스크리닝에서 지속적인 인지 웰니스까지.",
+        "programs.subtitle": "증거에 기반한 커뮤니티 전달 서비스로, 사람들을 있는 곳에서 만날 수 있도록 설계되었습니다 — 존엄성, 접근성, 희망과 함께.",
+        "programs.card1.title": "무료 초기 인지 스크리닝",
+        "programs.card1.desc": "인지 컨디셔닝을 위한 10분 빠른 초기 스크리닝. 예약이나 보험 불필요.",
+        "programs.card1.pill": "무료 • 모두에게 개방",
+        "programs.card2.title": "전면적 MCI 평가",
+        "programs.card2.desc": "검증된 가장 정확한 프로토콜, 최대 90% 정확도, 훈련된 운영자가 커뮤니티 환경에서 제공. 전통적인 임상 비용의 일부.",
+        "programs.card2.pill": "고정확도",
+        "programs.card3.title": "의사 의뢰 및 인계",
+        "programs.card3.desc": "모든 참가자는 후속 관리와 연속성을 위해 자신의 의사에게 가져갈 수 있는 명확한 서면 보고서를 받습니다.",
+        "programs.card3.pill": "임상 브리지",
+        "programs.card4.title": "다중 모드 개입 지원",
+        "programs.card4.desc": "영양, 인지 운동, 운동 기능, 사회 기능에 걸친 실질적인 지침과 개입 — MCI를 안정화하거나 역전시키는 데 도움이 되는 기둥.",
+        "programs.card4.pill": "라이프스타일 + 지원",
+        "programs.apps.title": "디지털 웰니스 도구",
+        "programs.apps.desc": "커뮤니티 접촉점 사이에서 일상적인 뇌 건강을 지원하는 증거 기반 모바일 앱.",
+        "programs.app1.name": "기억력 향상",
+        "programs.app1.desc": "일일 인지 훈련 운동",
+        "programs.app2.name": "운동 기능",
+        "programs.app2.desc": "움직임 기반 신경가소성 훈련",
+        "programs.apps.note": "Apple App Store에서 이용 가능. 대면 프로그램의 보완.",
+        "get_started.eyebrow": "시작 방법",
+        "get_started.title": "네 가지 간단한 단계. 하나의 중요한 창.",
+        "get_started.subtitle": "조기 조치는 회복과 관리되는 쇠퇴의 차이입니다. 우리는 그것을 쉽고, 환영하며, 무료로 만듭니다.",
+        "get_started.step1.title": "무료 스크리닝 받기",
+        "get_started.step1.desc": "커뮤니티 이벤트에 들어가세요. 보험, 예약, 비용 없음. 아침 커피 한 잔 마시는 시간 정도 걸립니다.",
+        "get_started.step2.title": "사랑하는 사람들을 데려오세요",
+        "get_started.step2.desc": "배우자, 부모, 형제자매, 친구. 가족이 함께 참여할 때 초기 징후를 가장 쉽게 알아차릴 수 있습니다.",
+        "get_started.step3.title": "보고서 받기",
+        "get_started.step3.desc": "의사와 공유할 수 있는 명확한 서면 요약을 받게 됩니다. 우리는 스크리닝과 치료 사이의 격차를 메우는 데 도움을 줍니다.",
+        "get_started.step4.title": "여정 계속하기",
+        "get_started.step4.desc": "디지털 도구, 커뮤니티 자원, 후속 지원에 액세스하세요. 당신은 혼자가 아닙니다.",
+        "get_started.signup": "커뮤니티 스크리닝 신청",
+        "get_started.disclaimer": "<strong>중요:</strong> Cognitive Well은 커뮤니티 웰니스 이니셔티브입니다. 스크리닝과 자원은 교육 및 조기 인식 목적입니다. Cognitive Well은 고급 디지털 평가 및 개입 도구를 위해 제3자 인지 건강 기술 제공자와 협력합니다. 제3자 서비스 사용은 해당 업체의 자체 약관 및 개인정보 보호정책의 적용을 받습니다. 이는 전문 의료 조언, 진단 또는 치료의 대체가 아닙니다. 의학적 상태에 관한 질문이 있으면 항상 의사나 자격을 갖춘 의료 제공자와 상담하십시오.",
+        "support.eyebrow": "우리의 사명 지원",
+        "support.title": "우리는 함께 중요한 유일한 창에서 수천 명에게 도달할 수 있습니다.",
+        "support.donate.title": "우리의 작업 지원",
+        "support.donate.desc": "귀하의 기부는 지역사회 전반의 무료 스크리닝과 간병인 지원에 자금을 지원합니다.",
+        "support.donate.note": "100% AppChurch Global Foundation을 통해 프로그램 지원 • 501(c)(3)",
+        "support.ways_title": "참여 방법",
+        "support.gov.title": "정부 기관 및 공중 보건",
+        "support.gov.desc": "보조금 자금, 추천, 공동 주도 프로그램, 노화 서비스 협력.",
+        "support.gov.action": "협력 탐색",
+        "support.gov.contact": "문의하기",
+        "support.venue.title": "장소 호스트 및 커뮤니티 센터",
+        "support.venue.desc": "교회, 노인 센터, 도서관, 공원 — 스크리닝 및 이벤트 주최.",
+        "support.venue.action": "이벤트 주최",
+        "support.venue.contact": "문의하기",
+        "support.business.title": "기업, 재단 및 기부자",
+        "support.business.desc": "기업 기부, 후원, 직원 프로그램, 매칭 기부.",
+        "support.business.action": "파트너 되기",
+        "support.business.contact": "문의하기",
+        "support.health.title": "의료, 노인 돌봄 및 운영자",
+        "support.health.desc": "임상 협력, 추천, 자원봉사 인력, 공동 홍보.",
+        "support.health.action": "우리와 협력",
+        "support.health.contact": "문의하기",
+        "about.eyebrow": "이니셔티브",
+        "about.title": "인지 웰니스",
+        "about.desc": "인지 웰니스는 AppChurch Global Foundation이 주도하는 커뮤니티 기반 인지 건강 및 웰니스 이니셔티브로, 퇴행성 인지 질환을 예방, 중단 및 관리하기 위한 긴급하고 절박한 요구를 해결합니다.",
+        "about.badge1": "501(c)(3)",
+        "about.badge1_text": "면세 비영리 • 2020년부터 공익",
+        "about.badge2": "플랫폼",
+        "about.badge2_text": "신앙 • 기술 • 커뮤니티",
+        "about.badge3": "네트워크",
+        "about.badge3_text": "신경과학의 임상 및 기술 파트너",
+        "about.founded": "2020년 설립",
+        "about.founded_text": "사람들이 있는 곳 — 커뮤니티와 온라인에서 만남.",
+        "about.appchurch": "AppChurch Global Foundation",
+        "footer.brand_desc": "커뮤니티 기반 인지 건강 및 웰니스 이니셔티브. 조기 인식. 자비로운 지원. 지속적인 희망.",
+        "footer.explore": "탐색",
+        "footer.connect": "연결",
+        "footer.copyright": "© 2019–2026 Cognitive Well. 판권 소유.",
+        "footer.initiative": "AppChurch Global Foundation의 커뮤니티 웰니스 이니셔티브, 501(c)(3) 비영리 조직."
+      },
+      ja: {
+        "nav.logo.name": "認知ウェルネス",
+        "nav.logo.tag": "コミュニティウェルネスイニシアチブ",
+        "nav.reality": "現実",
+        "nav.opportunity": "決定的な窓",
+        "nav.programs": "私たちのプログラム",
+        "nav.get_started": "始める",
+        "nav.support": "支援する",
+        "nav.about": "概要",
+        "hero.eyebrow": "コミュニティウェルネスイニシアチブ",
+        "hero.title": "認知症は差別しません。かかる前に止めましょう。",
+        "hero.subtitle": "人生のあらゆる段階に無料でアクセス可能で思いやりのある認知健康リソースを提供します。早期の気づきがすべてを変えます。",
+        "hero.cta_screened": "スクリーニングを受ける",
+        "hero.cta_support": "私たちのミッションを支援",
+        "hero.cta_tools": "ツールを探す",
+        "hero.championed": "<strong>AppChurch Global Foundation</strong>が主導 • 501(c)(3)",
+        "reality.eyebrow": "現実",
+        "reality.title": "認知症は差別しません — そのコストは驚異的です。",
+        "reality.subtitle": "富、名声、地位は保護を提供しません。すべての家族が候補者であり、負担は最も耐えられない人々に最も重くのしかかります。",
+        "reality.caption": "<strong>認知症は誰にでも襲いかかる可能性があります。</strong> 誰も免疫はありません。",
+        "reality.stat1": "<strong>生涯認知症リスク</strong><br>アメリカ人の約5人に2人が55歳以降に認知症を発症します。",
+        "reality.stat2": "<strong>より高い死亡率</strong><br>認知症患者は認知的に健康な同年代より7.5倍速く死亡します。",
+        "reality.stat3": "<strong>1人あたりの平均生涯ケアコスト</strong><br>70%が家族負担 — 自己負担と無償介護を通じて。",
+        "reality.stat4": "<strong>完全な神経心理学的MCI診断のコスト</strong><br>ほとんどの家族には手が届きません。私たちはそのギャップを埋めています。",
+        "window.eyebrow": "決定的な窓",
+        "window.title": "認知症を止める唯一の窓。<br>しかしアメリカ人の92%が見逃しています。",
+        "window.subtitle": "軽度認知障害（MCI）は決定的な前駆段階です。タイムリーな介入があれば、まだ軌道を意味のある形で変えられる唯一の窓です。早期の一貫した行動により、最大51%が正常な認知に戻ることができます。",
+        "window.mci_label": "軽度認知障害（MCI）",
+        "window.mci_status": "阻止可能<br><strong>51%可逆</strong>",
+        "window.mci_points": "<li>唯一の可逆段階 — 進行を止めたり逆転させたりできる</li><li>早期の複合介入により51%のケースが正常に戻る</li><li>92%はこの窓を過ぎてから発見される</li>",
+        "window.divider": "引き返せないポイント",
+        "window.dementia_label": "認知症",
+        "window.dementia_status": "不可逆<br><strong>治療法なし</strong>",
+        "window.dementia_points": "<li>治療法なし — 一度発症すると不可逆</li><li>治療は症状を遅らせるだけで逆転はできない</li><li>この赤い線は絶対に越えてはならない</li>",
+        "footer.explore": "探索",
+        "footer.connect": "接続",
+        "faq.eyebrow": "よくある質問",
+        "faq.title": "MCI、認知ウェルネスおよび当プログラムに関するよくある質問",
+        "faq.subtitle": "軽度認知障害、早期発見、およびCognitive Wellが地域社会で脳の健康をどのようにサポートしているかについての明確な回答。",
+        "faq.q1": "軽度認知障害（MCI）とは何ですか？",
+        "faq.a1": "MCIは正常な認知老化と認知症の中間段階です。年齢に対して期待されるよりも大きな記憶力、思考力、または推論力の測定可能な変化を含みますが、日常生活に著しく支障をきたすほどではありません。",
+        "faq.q2": "MCIは止めたり逆転させたりできますか？",
+        "faq.a2": "はい。MCI患者の最大 <strong>51%</strong> は、早期に発見され、一貫した多領域介入（栄養、認知訓練、身体活動、社会参加、睡眠最適化）で対処された場合、正常な認知に戻ることができます。",
+        "faq.q3": "無料の認知スクリーニングを受けるにはどうすればよいですか？",
+        "faq.a3": "Cognitive Wellはコミュニティの場所（教会、高齢者センター、図書館）で無料の10分間の初期スクリーニングを提供しています。予約や保険は必要ありません。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">コミュニティスクリーニングにサインアップ</a>するか、イベントを主催するためにご連絡ください。",
+        "faq.q4": "Cognitive Wellの違いは何ですか？",
+        "faq.a4": "私たちはAppChurch Global Foundation（501(c)(3)）が主導するコミュニティ第一の認知健康イニシアチブです。私たちのモデルは、無料でアクセス可能なスクリーニング、エビデンスに基づくサポート、デジタルツール（Memory EnhancementおよびMotor Functionアプリ）、および直接の医師引き継ぎを組み合わせ、従来の臨床経路の高コストや障壁なしにすべてを提供します。",
+        "faq.q5": "認知症の治療法はありますか？",
+        "faq.a5": "現在、認知症の治療法はありません。しかし、MCIは意味のある介入が依然として進行を止めたり機能を回復させたりできる唯一の段階です。それが早期発見が重要な理由です。"
+      },
+      fr: {
+        "nav.logo.name": "Bien-être Cognitif",
+        "nav.logo.tag": "Initiative de Bien-être Communautaire",
+        "nav.reality": "La Réalité",
+        "nav.opportunity": "La Fenêtre Critique",
+        "nav.programs": "Nos Programmes",
+        "nav.get_started": "Commencer",
+        "nav.support": "Nous Soutenir",
+        "nav.about": "À Propos",
+        "hero.eyebrow": "UNE INITIATIVE DE BIEN-ÊTRE COMMUNAUTAIRE",
+        "hero.title": "La démence ne fait pas de discrimination, arrêtez-la avant qu'elle ne vous attrape.",
+        "hero.subtitle": "Des ressources de santé cognitive gratuites, accessibles et bienveillantes pour chaque étape de la vie. La prise de conscience précoce change tout.",
+        "hero.cta_screened": "Faites-vous dépister",
+        "hero.cta_support": "Soutenez Notre Mission",
+        "hero.cta_tools": "Explorer les Outils",
+        "hero.championed": "Porté par <strong>AppChurch Global Foundation</strong> • 501(c)(3)",
+        "reality.eyebrow": "La Réalité",
+        "reality.title": "La démence ne fait pas de discrimination — et le coût est stupéfiant.",
+        "reality.subtitle": "La richesse, la renommée et le statut n'offrent aucune protection. Chaque famille est candidate, et le fardeau pèse le plus lourdement sur ceux qui sont le moins en mesure de le porter.",
+        "reality.caption": "<strong>La démence peut frapper n'importe qui.</strong> Personne n'est immunisé.",
+        "reality.stat1": "<strong>Risque à vie de démence</strong><br>Environ deux Américains sur cinq développeront une démence après 55 ans.",
+        "reality.stat2": "<strong>Taux de mortalité plus élevé</strong><br>Les patients atteints de démence meurent 7,5 fois plus vite que leurs pairs cognitivement sains.",
+        "reality.stat3": "<strong>Coût moyen des soins à vie par personne</strong><br>70 % payés par les familles — de leur poche et par des soins non rémunérés.",
+        "reality.stat4": "<strong>Coût d'un diagnostic neuropsychologique complet du MCI</strong><br>Hors de portée pour la plupart des familles. Nous comblons cet écart.",
+        "window.eyebrow": "La Fenêtre Critique",
+        "window.title": "La SEULE fenêtre pour arrêter la démence.<br>Pourtant, 92 % des Américains la manquent.",
+        "window.subtitle": "Le trouble cognitif léger (MCI) est le stade précurseur critique — la seule fenêtre où une intervention opportune peut encore changer significativement la trajectoire. Jusqu'à 51 % peuvent retrouver une cognition normale avec une action précoce et cohérente.",
+        "window.mci_label": "Trouble Cognitif Léger (MCI)",
+        "window.mci_status": "Arrêtable<br><strong>51 % Réversible</strong>",
+        "window.mci_points": "<li>Seul stade réversible — la progression peut être arrêtée ou inversée</li><li>51 % des cas reviennent à la normale avec des interventions plurielles précoces</li><li>92 % ne sont pas détectés avant d'avoir dépassé cette fenêtre</li>",
+        "window.divider": "POINT DE NON-RETOUR",
+        "window.dementia_label": "DÉMENCE",
+        "window.dementia_status": "Irréversible<br><strong>Sans Remède</strong>",
+        "window.dementia_points": "<li>Pas de remède — irréversible une fois développée</li><li>Les traitements ne font que ralentir les symptômes, ne peuvent pas inverser</li><li>Cette ligne rouge ne doit jamais être franchie</li>",
+        "footer.explore": "Explorer",
+        "footer.connect": "Connecter",
+        "faq.eyebrow": "Questions Fréquemment Posées",
+        "faq.title": "Questions Courantes sur le MCI, le Bien-être Cognitif et Nos Programmes",
+        "faq.subtitle": "Réponses claires pour vous aider à comprendre le trouble cognitif léger, la détection précoce et comment Cognitive Well soutient la santé cérébrale dans votre communauté.",
+        "faq.q1": "Qu'est-ce que le trouble cognitif léger (MCI) ?",
+        "faq.a1": "Le MCI est un stade intermédiaire entre le vieillissement cognitif normal et la démence. Il implique des changements mesurables dans la mémoire, la pensée ou le raisonnement qui sont plus importants que prévu pour l'âge d'une personne, mais pas assez graves pour interférer significativement avec la vie quotidienne.",
+        "faq.q2": "Le MCI peut-il être arrêté ou inversé ?",
+        "faq.a2": "Oui. Jusqu'à <strong>51 %</strong> des personnes atteintes de MCI peuvent retrouver une cognition normale lorsque la condition est identifiée tôt et traitée par des interventions cohérentes et multidomaines (nutrition, entraînement cognitif, activité physique, engagement social et optimisation du sommeil).",
+        "faq.q3": "Comment puis-je obtenir un dépistage cognitif gratuit ?",
+        "faq.a3": "Cognitive Well propose des dépistages initiaux gratuits de 10 minutes dans des lieux communautaires (églises, centres pour personnes âgées, bibliothèques). Aucun rendez-vous ni assurance n'est requis. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Inscrivez-vous pour un dépistage communautaire</a> ou contactez-nous pour organiser un événement.",
+        "faq.q4": "Qu'est-ce qui rend Cognitive Well différent ?",
+        "faq.a4": "Nous sommes une initiative communautaire de première ligne portée par AppChurch Global Foundation (501(c)(3)). Notre modèle combine un dépistage gratuit et accessible, un soutien fondé sur des preuves, des outils numériques (applications Memory Enhancement et Motor Function) et un transfert direct vers le médecin — le tout sans le coût élevé ou les barrières des parcours cliniques traditionnels.",
+        "faq.q5": "Existe-t-il un remède contre la démence ?",
+        "faq.a5": "Il n'existe actuellement aucun remède contre la démence. Cependant, le MCI est le seul stade où une intervention significative peut encore arrêter la progression ou restaurer la fonction. C'est pourquoi la détection précoce est critique."
+      }
+    };
+
+    let currentLang = 'en';
+
+    function applyTranslations(lang) {
+      if (!translations[lang]) lang = 'en';
+      currentLang = lang;
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          const trans = translations[lang][key];
+          // Use innerHTML if the translation contains HTML tags (to support <strong>, <br>, <li>, <a> etc.)
+          if (trans.includes('<')) {
+            el.innerHTML = trans;
+          } else {
+            el.textContent = trans;
+          }
+        } else if (translations['en'] && translations['en'][key]) {
+          // Fallback to English if translation missing for this lang
+          const trans = translations['en'][key];
+          if (trans.includes('<')) {
+            el.innerHTML = trans;
+          } else {
+            el.textContent = trans;
+          }
+        }
+      });
+
+      // Update page title
+      const titleEl = document.querySelector('title');
+      if (titleEl && translations[lang]['hero.title']) {
+        // Keep base + dynamic if wanted, or set a translated title
+        document.title = translations[lang]['nav.logo.name'] + ' | ' + (translations[lang]['hero.title'] ? translations[lang]['hero.title'].replace(/<br>/g, ' ') : 'Cognitive Wellness');
+      }
+
+      // Update select value
+      const select = document.getElementById('lang-select');
+      if (select) select.value = lang;
+
+      // Store preference
+      localStorage.setItem('preferredLang', lang);
+    }
+
+    function switchLanguage(lang) {
+      applyTranslations(lang);
+    }
+
+    // Initialize language on load
+    function initLanguage() {
+      const savedLang = localStorage.getItem('preferredLang');
+      const browserLang = (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+      let initialLang = 'en';
+
+      if (savedLang && translations[savedLang]) {
+        initialLang = savedLang;
+      } else if (translations[browserLang]) {
+        initialLang = browserLang;
+      }
+
+      // Set the select
+      const select = document.getElementById('lang-select');
+      if (select) {
+        select.value = initialLang;
+      }
+
+      // Apply translations after a short delay to ensure all elements (including dynamically added FAQ) are there
+      setTimeout(() => {
+        applyTranslations(initialLang);
+      }, 100);
+    }
+
+    // Call init after DOM is ready
+    initLanguage();
   </script>
 </body>
 </html>
