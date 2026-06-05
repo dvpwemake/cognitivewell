@@ -910,30 +910,32 @@
       align-items: stretch;
     }
     .hope-panel {
-      flex: 0 0 25%;
+      flex: 0 0 38%;
       background: var(--paper);
       border: 1px solid var(--gold-light);
+      border-left: 5px solid var(--gold);
       border-radius: 20px;
-      padding: 20px 14px;
+      padding: 26px 22px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      box-shadow: 0 4px 15px rgba(15,23,42,0.06);
+      box-shadow: 0 6px 20px rgba(15,23,42,0.07);
       box-sizing: border-box;
     }
     .hope-panel .kicker {
       color: var(--gold);
       font-weight: 700;
-      letter-spacing: 1.5px;
-      font-size: 11px;
-      margin-bottom: 5px;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 8px;
       text-transform: uppercase;
     }
     .hope-panel .big {
-      font-size: 15px;
-      line-height: 1.35;
+      font-size: 18px;
+      line-height: 1.4;
       color: var(--navy);
+      font-weight: 500;
     }
     .video-col {
       flex: 1;
@@ -996,7 +998,7 @@
       gap: 20px;
     }
     .video-credit-bar .spacer {
-      flex: 0 0 25%;
+      flex: 0 0 38%;
     }
     .video-credit-bar .video-credit {
       flex: 1;
@@ -1321,7 +1323,9 @@
       <div class="hope-video-split">
         <div class="hope-panel">
           <div class="kicker" data-i18n="window.hope_kicker">THE HOPE</div>
-          <div class="big" data-i18n="window.hope_text">Up to <span style="color:var(--gold);">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.</div>
+          <div class="big" data-i18n="window.hope_text">
+            Up to <span style="color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, multi-modal interventions.
+          </div>
         </div>
         <div class="video-col">
           <a class="video-thumb" href="https://youtu.be/ryk7Hz5D9bo" target="_blank" aria-label="Watch Mild Cognitive Impairment (MCI) Dementia Screening Early on YouTube">
@@ -1709,7 +1713,7 @@
         "window.dementia_points": "<li>No cure — irreversible once developed</li><li>Treatments only slow symptoms, cannot reverse</li><li>The red line must not be crossed</li>",
         "window.timeline_title": "THE CRITICAL WINDOW",
         "window.hope_kicker": "THE HOPE",
-        "window.hope_text": "Up to <span style=\"color:var(--gold);\">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, plural interventions.",
+        "window.hope_text": "Up to <span style=\"color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;\">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, multi-modal interventions.",
         "window.video_credit": "AppChurch Global Foundation",
         "programs.eyebrow": "Our Approach",
         "programs.title": "From free screening to lasting cognitive wellness.",
