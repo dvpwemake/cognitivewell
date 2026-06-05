@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cognitive Well | Free Dementia, Cognitive Decline Screening, Brain Health &amp; Cognitive Wellness</title>
-  <meta name="description" content="Cognitive Well is a community-based cognitive health initiative by AppChurch Global Foundation offering , early dementia detection, brain health education and support. Up to 51% of MCI cases can be reversed with timely intervention.">
-  <meta name="keywords" content="cognitive wellness, MCI screening, mild cognitive impairment, brain health, dementia prevention, early cognitive decline detection, community wellness initiative, AppChurch Global Foundation">
+  <meta name="description" content="Cognitive Well (stopMCI.org, mcidementiaprevention.org, cognitivewell.org, mcidementia.org) is a community-based cognitive health initiative by AppChurch Global Foundation offering early dementia detection, brain health education and support. Up to 51% of MCI cases can be reversed with timely intervention. Also at noahtech.health.">
+  <meta name="keywords" content="cognitive wellness, MCI screening, mild cognitive impairment, brain health, dementia prevention, early cognitive decline detection, community wellness initiative, AppChurch Global Foundation, stopMCI, mcidementiaprevention, mcidementia, cognitivewell, noahtech">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://cognitivewell.org/">
   
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Cognitive Well | Free Dementia Screening &amp; Cognitive Wellness Initiative">
-  <meta property="og:description" content="Free community MCI screening and brain health support. Championed by AppChurch Global Foundation. 51% of mild cognitive impairment cases reversible with early action.">
+  <meta property="og:description" content="Free community MCI screening and brain health support (stopMCI.org, mcidementiaprevention.org, mcidementia.org). Championed by AppChurch Global Foundation. 51% of mild cognitive impairment cases reversible with early action. See also cognitivewell.org and noahtech.health.">
   <meta property="og:image" content="https://cognitivewell.org/img/Cognitivewellhead.jpg">
   <meta property="og:url" content="https://cognitivewell.org/">
   <meta property="og:site_name" content="Cognitive Well">
@@ -20,7 +20,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cognitive Well | Community MCI Screening &amp; Brain Health">
-  <meta name="twitter:description" content="Free early detection for mild cognitive impairment. Community wellness initiative championed by AppChurch Global Foundation.">
+  <meta name="twitter:description" content="Free early detection for mild cognitive impairment (stopMCI.org | mcidementiaprevention.org | cognitivewell.org | mcidementia.org). Community wellness initiative championed by AppChurch Global Foundation. See also noahtech.health.">
   <meta name="twitter:image" content="https://cognitivewell.org/img/Cognitivewellhead.jpg">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -325,6 +325,9 @@
       font-size: 19px;
       color: var(--muted);
       max-width: 620px;
+    }
+    #opportunity .section-header p {
+      max-width: 100%;
     }
     
     /* The Reality - Elegant image grid + stats */
@@ -740,7 +743,8 @@
 
     /* THE CRITICAL WINDOW - Pure CSS Timeline Animation */
     .timeline-wrapper {
-      max-width: 1100px;
+      width: 100%;
+      max-width: 100%;
       margin: 0 auto;
     }
     .timeline {
@@ -901,47 +905,6 @@
       }
     }
 
-    /* Side-by-side THE HOPE (1/4) + Video thumb (3/4) layout in Critical Window - professional, same height, aesthetic */
-    .hope-video-split {
-      display: flex;
-      gap: 20px;
-      max-width: 1100px;
-      margin: 32px auto 0;
-      align-items: stretch;
-    }
-    .hope-panel {
-      flex: 0 0 38%;
-      background: var(--paper);
-      border: 1px solid var(--gold-light);
-      border-left: 5px solid var(--gold);
-      border-radius: 20px;
-      padding: 26px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      box-shadow: 0 6px 20px rgba(15,23,42,0.07);
-      box-sizing: border-box;
-    }
-    .hope-panel .kicker {
-      color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 2px;
-      font-size: 13px;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    .hope-panel .big {
-      font-size: 18px;
-      line-height: 1.4;
-      color: var(--navy);
-      font-weight: 500;
-    }
-    .video-col {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
     .video-thumb {
       position: relative;
       width: 100%;
@@ -991,37 +954,184 @@
     .video-thumb .play-icon i {
       margin-left: 3px;
     }
-    .video-credit-bar {
-      max-width: 1100px;
-      margin: 6px auto 0;
-      display: flex;
-      gap: 20px;
+
+    /* Vertical single column stack for The Critical Window section (same column width as other sections like The Reality, Our Approach, etc.):
+       section-header (intro text) -> video -> THE HOPE block -> CSS timeline animation.
+       All elements fill the full container column width (max ~1280px centered with padding). */
+    .video-full {
+      width: 100%;
+      max-width: 100%;
+      margin: 24px auto 0;
     }
-    .video-credit-bar .spacer {
-      flex: 0 0 38%;
-    }
-    .video-credit-bar .video-credit {
-      flex: 1;
+    .video-full .video-credit {
       font-size: 11px;
       color: var(--muted);
-      text-align: left;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .hope-panel {
+      width: 100%;
+      max-width: 100%;
+      margin: 28px auto 0;
+      background: var(--paper);
+      border: 1px solid var(--gold-light);
+      border-left: 6px solid var(--gold);
+      border-radius: 18px;
+      padding: 26px 28px;
+      box-shadow: 0 6px 20px rgba(15,23,42,0.07);
+      box-sizing: border-box;
+    }
+    .hope-panel .kicker {
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 13px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      display: block;
+    }
+    .hope-panel .big {
+      font-size: 17px;
+      line-height: 1.45;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .timeline-wrapper {
+      width: 100%;
+      max-width: 100%;
+      margin: 32px auto 0;
+    }
+    .timeline-wrapper .timeline-title {
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
     }
 
-    /* Responsive: stack on smaller screens */
-    @media (max-width: 900px) {
-      .hope-video-split {
-        flex-direction: column;
-        gap: 16px;
+    /* Mobile refinements for the vertical stack */
+    @media (max-width: 640px) {
+      .video-full,
+      .hope-panel,
+      .timeline-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .video-full {
+        padding-left: 0;
+        padding-right: 0;
       }
       .hope-panel {
-        flex: none;
-        width: 100%;
+        padding: 20px 18px;
       }
-      .video-credit-bar .spacer {
-        display: none;
+      .hope-panel .big {
+        font-size: 15.5px;
       }
-      .video-credit-bar .video-credit {
-        text-align: center;
+    }
+
+    /* Community Partners Section - One-roll Carousel */
+    .partners-section {
+      background: var(--gold-soft);
+      padding: 48px 0 56px;
+      border-top: 1px solid var(--rule);
+    }
+    .partners-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .partners-eyebrow {
+      display: inline-block;
+      background: #f8f1e3;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .partners-title {
+      font-size: 26px;
+      color: var(--navy);
+      margin: 0;
+      font-weight: 700;
+    }
+    .partners-subtitle {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 8px auto 0;
+      font-size: 14.5px;
+    }
+    .partners-carousel {
+      overflow: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 8px 0 4px;
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      align-items: flex-start;
+      animation: partners-scroll 28s linear infinite;
+      will-change: transform;
+    }
+    .partners-carousel:hover .carousel-track {
+      animation-play-state: paused;
+    }
+    .carousel-item {
+      flex: 0 0 168px;
+      min-width: 168px;
+      text-align: center;
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 82px;
+    }
+    .carousel-item img {
+      height: 46px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      margin-bottom: 5px;
+      display: block;
+      filter: saturate(0.95);
+    }
+    .carousel-item .partner-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.1;
+      min-height: 32px;
+      max-width: 158px;
+      display: block;
+    }
+
+    @keyframes partners-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .carousel-item {
+        flex: 0 0 132px;
+        min-width: 132px;
+        min-height: 68px;
+      }
+      .carousel-item img {
+        height: 38px;
+        max-width: 100px;
+      }
+      .carousel-item .partner-name {
+        font-size: 10px;
+        min-height: 26px;
+        max-width: 122px;
+      }
+      .partners-section {
+        padding: 36px 0 44px;
       }
     }
   </style>
@@ -1038,9 +1148,9 @@
         "url": "https://cognitivewell.org",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://cognitivewell.org/img/CognitiveWell_logo.png"
+          "url": "https://cognitivewell.org/img/CognitiveWell_logo_sm.png"
         },
-        "description": "A community-based cognitive health and wellness initiative offering Free Dementia Screening, brain health education, and support programs.",
+        "description": "A community-based cognitive health and wellness initiative (stopMCI.org, mcidementiaprevention.org, mcidementia.org, cognitivewell.org) offering Free Dementia Screening, brain health education, and support programs. Related: noahtech.health.",
         "foundingDate": "2020",
         "parentOrganization": {
           "@type": "NonprofitOrganization",
@@ -1128,7 +1238,7 @@
     <div class="container">
       <nav class="nav">
         <a href="#top" class="logo">
-          <img src="img/CognitiveWell_logo.png" alt="Cognitive Well logo - Community cognitive health and wellness initiative">
+          <img src="img/CognitiveWell_logo_sm.png" alt="Cognitive Well logo - Community cognitive health and wellness initiative">
           <div>
             <div class="name" data-i18n="nav.logo.name">Cognitive Well</div>
             <div class="tag" data-i18n="nav.logo.tag">Community Wellness Initiative</div>
@@ -1267,15 +1377,31 @@
   <!-- The Opportunity -->
   <section id="opportunity" class="peaceful">
     <div class="container">
-      <div class="section-header" style="max-width: 100%;">
+      <div class="section-header">
         <div class="eyebrow" data-i18n="window.eyebrow">The Critical Window</div>
         <h2 data-i18n="window.title">The ONLY window to stop dementia.<br>Yet 92% of Americans miss it.</h2>
         <p data-i18n="window.subtitle">Mild Cognitive Impairment (MCI) is the critical precursor stage — the only window where timely intervention can still meaningfully change the trajectory. Up to 51% can return to normal cognition with early, consistent action.</p>
       </div>
 
-      <!-- Pure CSS Critical Window Animation / Timeline -->
-      <div class="timeline-wrapper" style="margin: 40px 0;">
-        <div class="timeline-title" style="text-align:center; font-weight:700; font-size:18px; color:var(--navy); margin-bottom:16px; letter-spacing:0.5px;" data-i18n="window.timeline_title">THE CRITICAL WINDOW</div>
+      <!-- Video (full width) -->
+      <div class="video-full">
+        <a class="video-thumb" href="https://youtu.be/ryk7Hz5D9bo" target="_blank" aria-label="Watch Mild Cognitive Impairment (MCI) Dementia Screening Early on YouTube">
+          <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+        </a>
+        <div class="video-credit" data-i18n="window.video_credit">AppChurch Global Foundation</div>
+      </div>
+
+      <!-- THE HOPE (full width, after video) -->
+      <div class="hope-panel">
+        <div class="kicker" data-i18n="window.hope_kicker">THE HOPE</div>
+        <div class="big" data-i18n="window.hope_text">
+          Up to <span style="color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, multi-modal interventions.
+        </div>
+      </div>
+
+      <!-- CSS Animation / Timeline (full width, last) -->
+      <div class="timeline-wrapper">
+        <div class="timeline-title" data-i18n="window.timeline_title">THE CRITICAL WINDOW</div>
         
         <div class="timeline">
           <!-- MCI Green Side -->
@@ -1318,24 +1444,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="hope-video-split">
-        <div class="hope-panel">
-          <div class="kicker" data-i18n="window.hope_kicker">THE HOPE</div>
-          <div class="big" data-i18n="window.hope_text">
-            Up to <span style="color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;">51%</span> of MCI cases can return to normal cognition — when identified and supported early through consistent, multi-modal interventions.
-          </div>
-        </div>
-        <div class="video-col">
-          <a class="video-thumb" href="https://youtu.be/ryk7Hz5D9bo" target="_blank" aria-label="Watch Mild Cognitive Impairment (MCI) Dementia Screening Early on YouTube">
-            <div class="play-icon"><i class="fa-solid fa-play"></i></div>
-          </a>
-        </div>
-      </div>
-      <div class="video-credit-bar">
-        <div class="spacer"></div>
-        <div class="video-credit" data-i18n="window.video_credit">AppChurch Global Foundation</div>
       </div>
     </div>
   </section>
@@ -1594,13 +1702,113 @@
     </div>
   </section>
 
+  <!-- Community Partners -->
+  <section class="partners-section">
+    <div class="container">
+      <div class="partners-header">
+        <div class="partners-eyebrow">COMMUNITY PARTNERS</div>
+        <h2 class="partners-title">Proudly Working Together</h2>
+        <p class="partners-subtitle">
+          These organizations share our mission to bring early cognitive screening and support to communities.
+        </p>
+      </div>
+
+      <div class="partners-carousel">
+        <div class="carousel-track">
+          <!-- AppChurch Global Foundation -->
+          <div class="carousel-item">
+            <img src="img/Appchurch logo.png" alt="AppChurch Global Foundation logo">
+            <div class="partner-name">AppChurch Global Foundation</div>
+          </div>
+          <!-- Borough of Palisades Park -->
+          <div class="carousel-item">
+            <img src="img/pp logo.png" alt="Borough of Palisades Park logo">
+            <div class="partner-name">Borough of Palisades Park</div>
+          </div>
+          <!-- Bergen County Division of Senior Services -->
+          <div class="carousel-item">
+            <img src="img/bergen-county-seal-hd.png" alt="Bergen County Division of Senior Services logo">
+            <div class="partner-name">Bergen County Division of Senior Services</div>
+          </div>
+          <!-- Bergen County Dementia Friendly Initiative -->
+          <div class="carousel-item">
+            <img src="img/df-logo.png" alt="Bergen County Dementia Friendly Initiative logo">
+            <div class="partner-name">Bergen County Dementia Friendly Initiative</div>
+          </div>
+          <!-- Calidi Biotherapeutics -->
+          <div class="carousel-item">
+            <img src="img/calidi logo.webp" alt="Calidi Biotherapeutics logo">
+            <div class="partner-name">Calidi Biotherapeutics (NYSE: CLDI)</div>
+          </div>
+          <!-- First Presbyterian Church -->
+          <div class="carousel-item">
+            <img src="img/fpc logo.png" alt="First Presbyterian Church logo">
+            <div class="partner-name">First Presbyterian Church</div>
+          </div>
+          <!-- NoahTech -->
+          <div class="carousel-item">
+            <img src="img/Noah Tech logo.png" alt="NoahTech logo">
+            <div class="partner-name">NoahTech</div>
+          </div>
+          <!-- Happiness by Habit -->
+          <div class="carousel-item">
+            <img src="img/happieness by habit logo.png" alt="Happiness by Habit logo">
+            <div class="partner-name">Happiness by Habit</div>
+          </div>
+
+          <!-- DUPLICATED for seamless infinite roll -->
+          <!-- AppChurch Global Foundation -->
+          <div class="carousel-item">
+            <img src="img/Appchurch logo.png" alt="AppChurch Global Foundation logo">
+            <div class="partner-name">AppChurch Global Foundation</div>
+          </div>
+          <!-- Borough of Palisades Park -->
+          <div class="carousel-item">
+            <img src="img/pp logo.png" alt="Borough of Palisades Park logo">
+            <div class="partner-name">Borough of Palisades Park</div>
+          </div>
+          <!-- Bergen County Division of Senior Services -->
+          <div class="carousel-item">
+            <img src="img/bergen-county-seal-hd.png" alt="Bergen County Division of Senior Services logo">
+            <div class="partner-name">Bergen County Division of Senior Services</div>
+          </div>
+          <!-- Bergen County Dementia Friendly Initiative -->
+          <div class="carousel-item">
+            <img src="img/df-logo.png" alt="Bergen County Dementia Friendly Initiative logo">
+            <div class="partner-name">Bergen County Dementia Friendly Initiative</div>
+          </div>
+          <!-- Calidi Biotherapeutics -->
+          <div class="carousel-item">
+            <img src="img/calidi logo.webp" alt="Calidi Biotherapeutics logo">
+            <div class="partner-name">Calidi Biotherapeutics (NYSE: CLDI)</div>
+          </div>
+          <!-- First Presbyterian Church -->
+          <div class="carousel-item">
+            <img src="img/fpc logo.png" alt="First Presbyterian Church logo">
+            <div class="partner-name">First Presbyterian Church</div>
+          </div>
+          <!-- NoahTech -->
+          <div class="carousel-item">
+            <img src="img/Noah Tech logo.png" alt="NoahTech logo">
+            <div class="partner-name">NoahTech</div>
+          </div>
+          <!-- Happiness by Habit -->
+          <div class="carousel-item">
+            <img src="img/happieness by habit logo.png" alt="Happiness by Habit logo">
+            <div class="partner-name">Happiness by Habit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer with Disclaimer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo" style="margin-bottom:12px;">
-            <img src="img/CognitiveWell_logo.png" alt="Cognitive Well logo" style="width:38px;height:38px;">
+            <img src="img/CognitiveWell_logo_sm.png" alt="Cognitive Well logo" style="width:38px;height:38px;">
             <span style="color:white; font-size:20px; font-weight:700;">Cognitive Well</span>
           </div>
           <p data-i18n="footer.brand_desc">A community-based cognitive health and wellness initiative. Early awareness. Compassionate support. Lasting hope.</p>
@@ -1836,6 +2044,9 @@
         "window.dementia_label": "DEMENCIA",
         "window.dementia_status": "Irreversible<br><strong>Sin Cura</strong>",
         "window.dementia_points": "<li>No hay cura: irreversible una vez desarrollada</li><li>Los tratamientos solo retrasan los síntomas, no pueden revertir</li><li>La línea roja no debe cruzarse</li>",
+        "window.timeline_title": "LA VENTANA CRÍTICA",
+        "window.hope_kicker": "LA ESPERANZA",
+        "window.hope_text": "Hasta el <span style=\"color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;\">51%</span> de los casos de MCI pueden volver a la cognición normal — cuando se identifican y apoyan temprano mediante intervenciones consistentes y multimodales.",
         "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "Explorar",
         "footer.connect": "Conectar",
@@ -1960,6 +2171,9 @@
         "window.dementia_label": "痴呆症",
         "window.dementia_status": "不可逆<br><strong>无药可治</strong>",
         "window.dementia_points": "<li>无治愈方法——一旦发展就不可逆</li><li>治疗只能减缓症状，无法逆转</li><li>这条红线绝不能跨越</li>",
+        "window.timeline_title": "关键窗口期",
+        "window.hope_kicker": "希望",
+        "window.hope_text": "高达 <span style=\"color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;\">51%</span> 的MCI病例可以恢复正常认知——当及早识别并通过一致的多模式干预支持时。",
         "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "探索",
         "footer.connect": "联系",
@@ -2084,6 +2298,9 @@
         "window.dementia_label": "치매",
         "window.dementia_status": "비가역적<br><strong>치료 불가</strong>",
         "window.dementia_points": "<li>치료법 없음 — 일단 발병하면 비가역적</li><li>치료는 증상만 늦출 뿐 역전 불가</li><li>이 빨간 선은 절대 넘지 말아야 함</li>",
+        "window.timeline_title": "결정적 창",
+        "window.hope_kicker": "희망",
+        "window.hope_text": "조기 발견과 일관된 다중 모드 개입을 통해 <span style=\"color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;\">51%</span>까지의 MCI 사례가 정상 인지로 회복될 수 있습니다.",
         "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "탐색",
         "footer.connect": "연결",
@@ -2208,6 +2425,9 @@
         "window.dementia_label": "認知症",
         "window.dementia_status": "不可逆<br><strong>治療法なし</strong>",
         "window.dementia_points": "<li>治療法なし — 一度発症すると不可逆</li><li>治療は症状を遅らせるだけで逆転はできない</li><li>この赤い線は絶対に越えてはならない</li>",
+        "window.timeline_title": "決定的な窓",
+        "window.hope_kicker": "希望",
+        "window.hope_text": "早期に特定され、一貫したマルチモーダル介入によってサポートされれば、MCI症例の最大 <span style=\"color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;\">51%</span> が正常な認知に戻ることができます。",
         "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "探索",
         "footer.connect": "接続",
@@ -2258,6 +2478,9 @@
         "window.dementia_label": "DÉMENCE",
         "window.dementia_status": "Irréversible<br><strong>Sans Remède</strong>",
         "window.dementia_points": "<li>Pas de remède — irréversible une fois développée</li><li>Les traitements ne font que ralentir les symptômes, ne peuvent pas inverser</li><li>Cette ligne rouge ne doit jamais être franchie</li>",
+        "window.timeline_title": "LA FENÊTRE CRITIQUE",
+        "window.hope_kicker": "L'ESPOIR",
+        "window.hope_text": "Jusqu'à <span style=\"color:var(--gold); font-size:1.35em; font-weight:700; line-height:1;\">51 %</span> des cas de MCI peuvent retrouver une cognition normale — lorsqu'ils sont identifiés et soutenus précocement par des interventions cohérentes et multimodales.",
         "window.video_credit": "AppChurch Global Foundation",
         "footer.explore": "Explorer",
         "footer.connect": "Connecter",
@@ -2318,21 +2541,11 @@
       // Store preference
       localStorage.setItem('preferredLang', lang);
 
-      // Re-match heights after translation (in case text length affects layout slightly)
-      matchHopeVideoHeights();
+      // Layout is now natural top-aligned; no height matching needed after translation
     }
 
     function switchLanguage(lang) {
       applyTranslations(lang);
-    }
-
-    function matchHopeVideoHeights() {
-      const hopePanel = document.querySelector('.hope-panel');
-      const videoThumb = document.querySelector('.video-thumb');
-      if (hopePanel && videoThumb) {
-        // Force hope panel to exactly match the video thumb height for perfect side-by-side
-        hopePanel.style.height = videoThumb.offsetHeight + 'px';
-      }
     }
 
     // Initialize language on load
@@ -2356,23 +2569,11 @@
       // Apply translations after a short delay to ensure all elements (including dynamically added FAQ) are there
       setTimeout(() => {
         applyTranslations(initialLang);
-        matchHopeVideoHeights();
       }, 150);
     }
 
     // Call init after DOM is ready
     initLanguage();
-
-    // Immediate match for initial layout (after flex sizing)
-    setTimeout(matchHopeVideoHeights, 50);
-    setTimeout(matchHopeVideoHeights, 200);
-
-    // Match hope/video heights on resize (for responsive perfection)
-    window.addEventListener('resize', () => {
-      // debounce lightly
-      clearTimeout(window.__heightMatchTimer);
-      window.__heightMatchTimer = setTimeout(matchHopeVideoHeights, 100);
-    });
   </script>
 </body>
 </html>
