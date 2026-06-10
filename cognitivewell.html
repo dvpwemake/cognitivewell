@@ -1568,15 +1568,50 @@
         <h2 data-i18n="support.title">Together we can reach thousands in the only window that matters.</h2>
       </div>
       
-      <!-- Donate (compact, not dominating) -->
-      <div style="max-width:620px; margin:0 auto 42px; text-align:center;">
-        <div class="support-card" style="padding:22px 28px;">
-          <h3 style="margin-top:0; font-size:22px;" data-i18n="support.donate.title">Support Our Work</h3>
-          <p style="color:var(--muted); margin:8px 0 16px; font-size:15px;" data-i18n="support.donate.desc">Your gift funds free screenings and caregiver support across communities.</p>
-          <a href="https://www.zeffy.com/en-US/donation-form/support-cognitivewellorg" target="_blank" class="btn btn-gold" style="padding:12px 28px; font-size:15px; display:inline-flex; width:auto;">
-            <i class="fa-solid fa-heart" style="margin-right:8px;"></i> Donate &amp; Support Now
+      <!-- Three high-level action cards -->
+      <div class="support-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px; max-width:980px; margin:0 auto 42px;">
+        <!-- Spread the Word (left) -->
+        <div class="support-card" style="padding:18px 20px; display:flex; flex-direction:column; min-height:210px;">
+          <div style="flex:1;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <i class="fa-solid fa-bullhorn" style="color:var(--gold);"></i>
+              <h3 style="margin:0; font-size:17px;" data-i18n="support.spread.title">Spread the Word</h3>
+            </div>
+            <p style="color:var(--muted); font-size:13.5px; line-height:1.45; margin:0;" data-i18n="support.spread.desc">Know family or friends who might be at risk of cognitive decline? Bring them to a free community screening—early detection opens the only window for meaningful change.</p>
+          </div>
+          <a href="https://forms.gle/KLNv6tSbWjXHyYoH8" target="_blank" class="btn btn-primary" style="padding:9px 14px; font-size:13px; display:flex; align-items:center; justify-content:center; gap:6px; margin-top:12px; width:100%;">
+            <i class="fa-solid fa-calendar-check"></i> 
+            <span data-i18n="support.spread.action">Book a Screening</span>
           </a>
-          <div style="font-size:12px; color:var(--muted); margin-top:8px;" data-i18n="support.donate.note">100% supports programs through AppChurch Global Foundation • 501(c)(3)</div>
+        </div>
+
+        <!-- Support Financially (center, was Support Our Work) -->
+        <div class="support-card" style="padding:20px 24px; display:flex; flex-direction:column; min-height:210px;">
+          <div style="flex:1;">
+            <h3 style="margin-top:0; font-size:18px;" data-i18n="support.donate.title">Support Financially</h3>
+            <p style="color:var(--muted); margin:6px 0 14px; font-size:13.5px; line-height:1.45;" data-i18n="support.donate.desc">Your gift funds free screenings and caregiver support across communities.</p>
+          </div>
+          <div>
+            <a href="https://www.zeffy.com/en-US/donation-form/support-cognitivewellorg" target="_blank" class="btn btn-gold" style="padding:10px 20px; font-size:13px; display:flex; align-items:center; justify-content:center; gap:6px; width:100%;">
+              <i class="fa-solid fa-heart"></i> Donate &amp; Support Now
+            </a>
+            <div style="font-size:11px; color:var(--muted); margin-top:6px; text-align:center;" data-i18n="support.donate.note">100% supports programs through AppChurch Global Foundation • 501(c)(3)</div>
+          </div>
+        </div>
+
+        <!-- Co-host a Screening (right) -->
+        <div class="support-card" style="padding:18px 20px; display:flex; flex-direction:column; min-height:210px;">
+          <div style="flex:1;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <i class="fa-solid fa-handshake" style="color:var(--gold);"></i>
+              <h3 style="margin:0; font-size:17px;" data-i18n="support.cohost.title">Co-host a Screening</h3>
+            </div>
+            <p style="color:var(--muted); font-size:13.5px; line-height:1.45; margin:0;" data-i18n="support.cohost.desc">Churches, senior centers, libraries, or organizations with available venues: co-host a free community screening event with CognitiveWell to reach more people locally.</p>
+          </div>
+          <a href="mailto:hello@cognitivewell.org?subject=Co-host%20a%20Screening" class="btn btn-primary" style="padding:9px 14px; font-size:13px; display:flex; align-items:center; justify-content:center; gap:6px; margin-top:12px; width:100%;">
+            <i class="fa-solid fa-envelope"></i> 
+            <span data-i18n="support.cohost.action">Collaborate Now</span>
+          </a>
         </div>
       </div>
 
@@ -1626,6 +1661,15 @@
             <a href="mailto:hello@cognitivewell.org?subject=Healthcare%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.health.contact">Contact Us</a>
           </div>
         </div>
+      </div>
+
+      <!-- Bottom CTA to full partnership deck -->
+      <div style="text-align:center; margin-top:24px; padding-top:16px; border-top:1px solid var(--rule);">
+        <a href="MCIpartner.html" class="btn btn-gold" style="padding:11px 24px; font-size:14px; display:inline-flex; align-items:center; gap:8px;">
+          <i class="fa-solid fa-handshake"></i>
+          <span>Support our initiative</span>
+        </a>
+        <div style="margin-top:6px; font-size:12px; color:var(--muted);">View the full partnership deck and opportunities</div>
       </div>
     </div>
   </section>
@@ -1960,9 +2004,15 @@
         "get_started.disclaimer": "<strong>Important:</strong> Cognitive Well is a community wellness initiative. Screening and resources are for educational and early-awareness purposes. Cognitive Well collaborates with third-party cognitive health technology providers, for advanced digital assessment and intervention tools. Use of third-party services is subject to their own terms and privacy policies. This is not a substitute for professional medical advice, diagnosis, or treatment. Always consult your physician or qualified healthcare provider with any questions you may have regarding a medical condition.",
         "support.eyebrow": "Support Our Mission",
         "support.title": "Together we can reach thousands in the only window that matters.",
-        "support.donate.title": "Support Our Work",
+        "support.donate.title": "Support Financially",
         "support.donate.desc": "Your gift funds free screenings and caregiver support across communities.",
         "support.donate.note": "100% supports programs through AppChurch Global Foundation • 501(c)(3)",
+        "support.spread.title": "Spread the Word",
+        "support.spread.desc": "Know family or friends who might be at risk of cognitive decline? Bring them to a free community screening—early detection opens the only window for meaningful change.",
+        "support.spread.action": "Book a Screening",
+        "support.cohost.title": "Co-host a Screening",
+        "support.cohost.desc": "Churches, senior centers, libraries, or organizations with available venues: co-host a free community screening event with CognitiveWell to reach more people locally.",
+        "support.cohost.action": "Collaborate Now",
         "support.ways_title": "Ways to Get Involved",
         "support.gov.title": "Government Agencies & Public Health",
         "support.gov.desc": "Grant funding, referrals, co-led programs, aging services collaboration.",
@@ -2099,9 +2149,15 @@
         "get_started.disclaimer": "<strong>Importante:</strong> Cognitive Well es una iniciativa de bienestar comunitario. La evaluación y los recursos son para fines educativos y de concienciación temprana. Cognitive Well colabora con proveedores de tecnología de salud cognitiva de terceros para herramientas avanzadas de evaluación e intervención digital. El uso de servicios de terceros está sujeto a sus propios términos y políticas de privacidad. Esto no es un sustituto del consejo médico profesional, diagnóstico o tratamiento. Siempre consulte a su médico o proveedor de atención médica calificado con cualquier pregunta que pueda tener con respecto a una condición médica.",
         "support.eyebrow": "Apoye Nuestra Misión",
         "support.title": "Juntos podemos alcanzar a miles en la única ventana que importa.",
-        "support.donate.title": "Apoye Nuestro Trabajo",
+        "support.donate.title": "Apoyo Financiero",
         "support.donate.desc": "Su donación financia evaluaciones gratuitas y apoyo a cuidadores en comunidades.",
         "support.donate.note": "El 100% apoya programas a través de AppChurch Global Foundation • 501(c)(3)",
+        "support.spread.title": "Difunde la Palabra",
+        "support.spread.desc": "Conoces familiares o amigos que podrían estar en riesgo de deterioro cognitivo? Anímalos a inscribirse en una evaluación comunitaria gratuita: la detección temprana abre la única ventana para un cambio real.",
+        "support.spread.action": "Reservar una Evaluación",
+        "support.cohost.title": "Co-organiza una Evaluación",
+        "support.cohost.desc": "Iglesias, centros para mayores, bibliotecas u organizaciones con espacios disponibles: co-organiza un evento de evaluación comunitaria gratuita con CognitiveWell para llegar a más personas localmente.",
+        "support.cohost.action": "Colabora Ahora",
         "support.ways_title": "Formas de Involucrarse",
         "support.gov.title": "Agencias Gubernamentales y Salud Pública",
         "support.gov.desc": "Financiamiento de subvenciones, referencias, programas co-liderados, colaboración en servicios de envejecimiento.",
@@ -2226,9 +2282,15 @@
         "get_started.disclaimer": "<strong>重要提示：</strong> Cognitive Well 是一个社区健康倡议。筛查和资源仅用于教育和早期意识目的。Cognitive Well 与第三方认知健康技术提供商合作，提供先进的数字评估和干预工具。使用第三方服务受其自身条款和隐私政策的约束。不代替专业医疗建议、诊断或治疗。如有任何医疗问题，请始终咨询您的医生或合格的医疗保健提供者。",
         "support.eyebrow": "支持我们的使命",
         "support.title": "同心协力抓住认知健康的黄金窗口期，帮助千百万社区大众。",
-        "support.donate.title": "支持我们的工作",
+        "support.donate.title": "财务支持",
         "support.donate.desc": "您的捐赠将资助我们的免费社区筛查和医护人员的工作。",
         "support.donate.note": "100% 通过 AppChurch Global Foundation 支持项目 • 501(c)(3)",
+        "support.spread.title": "传播信息",
+        "support.spread.desc": "认识可能面临认知衰退风险的家人或朋友吗？鼓励他们报名参加免费社区筛查——早期检测是开启真正改变的唯一窗口。",
+        "support.spread.action": "预约筛查",
+        "support.cohost.title": "共同主办筛查",
+        "support.cohost.desc": "教堂、老年中心、图书馆或有可用场地的机构：与 CognitiveWell 共同主办免费社区筛查活动，帮助更多本地居民。",
+        "support.cohost.action": "立即合作",
         "support.ways_title": "参与方式",
         "support.gov.title": "政府机构与公共卫生",
         "support.gov.desc": "赠款资助、转介、联合领导项目、老龄服务合作。",
@@ -2353,9 +2415,15 @@
         "get_started.disclaimer": "<strong>중요:</strong> Cognitive Well은 커뮤니티 웰니스 이니셔티브입니다. 스크리닝과 자원은 교육 및 조기 인식 목적입니다. Cognitive Well은 고급 디지털 평가 및 개입 도구를 위해 제3자 인지 건강 기술 제공자와 협력합니다. 제3자 서비스 사용은 해당 업체의 자체 약관 및 개인정보 보호정책의 적용을 받습니다. 이는 전문 의료 조언, 진단 또는 치료의 대체가 아닙니다. 의학적 상태에 관한 질문이 있으면 항상 의사나 자격을 갖춘 의료 제공자와 상담하십시오.",
         "support.eyebrow": "우리의 사명 지원",
         "support.title": "우리는 함께 중요한 유일한 창에서 수천 명에게 도달할 수 있습니다.",
-        "support.donate.title": "우리의 작업 지원",
+        "support.donate.title": "재정적 지원",
         "support.donate.desc": "귀하의 기부는 지역사회 전반의 무료 스크리닝과 간병인 지원에 자금을 지원합니다.",
         "support.donate.note": "100% AppChurch Global Foundation을 통해 프로그램 지원 • 501(c)(3)",
+        "support.spread.title": "알리기",
+        "support.spread.desc": "인지 저하 위험이 있을 수 있는 가족이나 친구를 아시나요? 무료 커뮤니티 스크리닝에 참여하도록 권유하세요. 조기 발견이 의미 있는 변화의 유일한 창입니다.",
+        "support.spread.action": "스크리닝 예약",
+        "support.cohost.title": "스크리닝 공동 주최",
+        "support.cohost.desc": "교회, 노인센터, 도서관 또는 사용 가능한 장소가 있는 기관: CognitiveWell과 함께 무료 커뮤니티 스크리닝 행사를 공동 주최하여 더 많은 지역 주민에게 다가가세요.",
+        "support.cohost.action": "지금 협력하기",
         "support.ways_title": "참여 방법",
         "support.gov.title": "정부 기관 및 공중 보건",
         "support.gov.desc": "보조금 자금, 추천, 공동 주도 프로그램, 노화 서비스 협력.",
