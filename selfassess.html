@@ -806,102 +806,74 @@
     function buildEmailReport(data) {
       const interp = getInterpretation(assessmentScore);
       const yesItems = assessmentAnswers.filter((a) => a.answer === 'Yes');
+      const divider = '─'.repeat(72);
+      const section = (title) => [divider, title.toUpperCase(), divider];
 
-      const itemsHtml = assessmentAnswers.map((item) => `
-        <tr>
-          <td style="padding:8px 10px;border-bottom:1px solid #e5e7eb;">${item.index}</td>
-          <td style="padding:8px 10px;border-bottom:1px solid #e5e7eb;">${item.text}</td>
-          <td style="padding:8px 10px;border-bottom:1px solid #e5e7eb;font-weight:600;color:${item.answer === 'Yes' ? '#991B1B' : '#166534'};">${item.answer}</td>
-        </tr>
-      `).join('');
+      const itemLines = assessmentAnswers.map((item) => {
+        const response = item.answer.padEnd(3);
+        return `  ${String(item.index).padStart(2)}.  ${item.text}\n       Response: ${response}`;
+      });
 
-      return `<!DOCTYPE html>
-<html><head><meta charset="UTF-8"></head>
-<body style="margin:0;padding:0;background:#f8f5f0;font-family:Georgia,'Times New Roman',serif;color:#1e2937;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8f5f0;padding:24px 12px;">
-    <tr><td align="center">
-      <table width="640" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e2e2e2;border-radius:8px;overflow:hidden;">
-        <tr>
-          <td style="background:#0f172a;color:#ffffff;padding:28px 32px;">
-            <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#d4ad62;margin-bottom:8px;">CognitiveWell.org</div>
-            <div style="font-size:26px;font-weight:700;margin-bottom:6px;">Cognitive Self-Assessment Referral Summary</div>
-            <div style="font-size:14px;opacity:0.9;">A Community Cognitive Wellness Initiative of AppChurch Global Foundation</div>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding:28px 32px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.65;">
-            <p style="margin:0 0 16px;"><strong>Date of Assessment:</strong> ${formatDate()}</p>
-            <p style="margin:0 0 20px;">Dear Healthcare Provider,</p>
-            <p style="margin:0 0 20px;">The following document summarizes a voluntary AD8-based cognitive condition self-assessment completed through <strong>CognitiveWell.org</strong>. It is provided by the participant for your clinical review and is <em>not</em> a definitive diagnosis.</p>
-
-            <h3 style="font-family:Georgia,serif;color:#0f172a;border-bottom:2px solid #b08828;padding-bottom:6px;">Participant Information</h3>
-            <table width="100%" style="margin:12px 0 24px;font-size:14px;">
-              <tr><td style="padding:6px 0;color:#64748b;width:180px;">Name</td><td style="padding:6px 0;"><strong>${data.name || 'Not provided'}</strong></td></tr>
-              <tr><td style="padding:6px 0;color:#64748b;">Email</td><td style="padding:6px 0;">${data.email}</td></tr>
-              <tr><td style="padding:6px 0;color:#64748b;">Age Range</td><td style="padding:6px 0;">${data.age}</td></tr>
-              <tr><td style="padding:6px 0;color:#64748b;">Gender</td><td style="padding:6px 0;">${data.gender || 'Not provided'}</td></tr>
-              <tr><td style="padding:6px 0;color:#64748b;">Location</td><td style="padding:6px 0;">${data.location}</td></tr>
-              <tr><td style="padding:6px 0;color:#64748b;">Cell Phone</td><td style="padding:6px 0;">${data.phone || 'Not provided'}</td></tr>
-              <tr><td style="padding:6px 0;color:#64748b;vertical-align:top;">Medical History</td><td style="padding:6px 0;">${data.medical}</td></tr>
-            </table>
-
-            <h3 style="font-family:Georgia,serif;color:#0f172a;border-bottom:2px solid #b08828;padding-bottom:6px;">AD8 Screening Result</h3>
-            <p style="margin:16px 0 8px;"><strong>Total Score:</strong> ${assessmentScore} of 10 &nbsp;|&nbsp; <strong>Interpretation:</strong> ${interp.title}</p>
-            <p style="margin:0 0 16px;color:#64748b;">${interp.copy}</p>
-            ${yesItems.length ? `<p style="margin:0 0 12px;"><strong>Endorsed items (${yesItems.length}):</strong> ${yesItems.map((i) => i.index).join(', ')}</p>` : ''}
-
-            <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e2e2e2;border-radius:6px;overflow:hidden;margin:16px 0 24px;font-size:13px;">
-              <tr style="background:#f8f5f0;">
-                <th align="left" style="padding:10px;border-bottom:1px solid #e2e2e2;">#</th>
-                <th align="left" style="padding:10px;border-bottom:1px solid #e2e2e2;">Item</th>
-                <th align="left" style="padding:10px;border-bottom:1px solid #e2e2e2;">Response</th>
-              </tr>
-              ${itemsHtml}
-            </table>
-
-            <h3 style="font-family:Georgia,serif;color:#0f172a;border-bottom:2px solid #b08828;padding-bottom:6px;">Clinical Note</h3>
-            <p style="margin:12px 0 0;">This tool is intended for early detection of mild cognitive impairment (MCI) and dementia. A positive screen (score ≥2) indicates the need for further comprehensive evaluation. We respectfully request your review and guidance regarding appropriate next steps for the participant.</p>
-
-            <p style="margin:24px 0 0;">Respectfully submitted,<br><strong>CognitiveWell.org</strong><br>Community Cognitive Wellness Initiative<br>AppChurch Global Foundation</p>
-          </td>
-        </tr>
-        <tr>
-          <td style="background:#f8f5f0;padding:18px 32px;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#64748b;line-height:1.5;">
-            © 2020–${CURRENT_YEAR} CognitiveWell.org — A Community Cognitive Wellness Initiative of AppChurch Global Foundation. All rights reserved.<br>
-            This message was generated from the Cognitive Condition Self-Assessment at cognitivewell.org/selfassess.html<br>
-            Contact: <a href="mailto:help@cognitivewell.org" style="color:#b08828;">help@cognitivewell.org</a>
-          </td>
-        </tr>
-      </table>
-    </td></tr>
-  </table>
-</body></html>`;
-    }
-
-    function buildPlainTextReport(data) {
-      const interp = getInterpretation(assessmentScore);
       const lines = [
-        'COGNITIVEWELL.ORG — COGNITIVE SELF-ASSESSMENT REFERRAL SUMMARY',
+        'COGNITIVEWELL.ORG',
+        'Cognitive Self-Assessment Referral Summary',
         'A Community Cognitive Wellness Initiative of AppChurch Global Foundation',
-        `Date: ${formatDate()}`,
         '',
-        'PARTICIPANT INFORMATION',
-        `Name: ${data.name || 'Not provided'}`,
-        `Email: ${data.email}`,
-        `Age: ${data.age}`,
-        `Gender: ${data.gender || 'Not provided'}`,
-        `Location: ${data.location}`,
-        `Phone: ${data.phone || 'Not provided'}`,
-        `Medical History: ${data.medical}`,
+        `Date of Assessment:  ${formatDate()}`,
         '',
-        'AD8 RESULT',
-        `Score: ${assessmentScore} / 10`,
-        `Interpretation: ${interp.title}`,
+        'Dear Healthcare Provider,',
         '',
-        ...assessmentAnswers.map((a) => `${a.index}. ${a.text} — ${a.answer}`),
+        'The following document summarizes a voluntary AD8-based cognitive condition',
+        'self-assessment completed through CognitiveWell.org. It is provided by the',
+        'participant for your clinical review and is not a definitive diagnosis.',
         '',
-        `© 2020–${CURRENT_YEAR} CognitiveWell.org. All rights reserved.`
+        ...section('Participant Information'),
+        '',
+        `  Name:              ${data.name || 'Not provided'}`,
+        `  Email:             ${data.email}`,
+        `  Age Range:         ${data.age}`,
+        `  Gender:            ${data.gender || 'Not provided'}`,
+        `  Location:          ${data.location}`,
+        `  Cell Phone:        ${data.phone || 'Not provided'}`,
+        `  Medical History:   ${data.medical}`,
+        '',
+        ...section('AD8 Screening Result'),
+        '',
+        `  Total Score:       ${assessmentScore} of 10`,
+        `  Interpretation:    ${interp.title}`,
+        '',
+        `  ${interp.copy}`,
+        ''
       ];
+
+      if (yesItems.length) {
+        lines.push(`  Endorsed Items (${yesItems.length}):  ${yesItems.map((i) => i.index).join(', ')}`, '');
+      }
+
+      lines.push(
+        '  Item Responses:',
+        '',
+        ...itemLines,
+        '',
+        ...section('Clinical Note'),
+        '',
+        '  This tool is intended for early detection of mild cognitive impairment (MCI)',
+        '  and dementia. A positive screen (score ≥2) indicates the need for further',
+        '  comprehensive evaluation. We respectfully request your review and guidance',
+        '  regarding appropriate next steps for the participant.',
+        '',
+        'Respectfully submitted,',
+        '',
+        'CognitiveWell.org',
+        'Community Cognitive Wellness Initiative',
+        'AppChurch Global Foundation',
+        '',
+        divider,
+        `© 2020–${CURRENT_YEAR} CognitiveWell.org. All rights reserved.`,
+        'Generated from cognitivewell.org/selfassess.html',
+        'Contact: help@cognitivewell.org'
+      );
+
       return lines.join('\n');
     }
 
@@ -912,8 +884,7 @@
       }
 
       const data = getContactData();
-      const htmlReport = buildEmailReport(data);
-      const plainReport = buildPlainTextReport(data);
+      const emailReport = buildEmailReport(data);
       const subject = `Cognitive Self-Assessment Referral — ${data.name || data.email} — Score ${assessmentScore}/10`;
 
       emailBtn.disabled = true;
@@ -930,13 +901,8 @@
             _subject: subject,
             _replyto: data.email,
             _cc: data.email,
-            _template: 'box',
             _captcha: 'false',
-            participant_name: data.name || 'Not provided',
-            participant_email: data.email,
-            assessment_score: `${assessmentScore}/10`,
-            message: plainReport,
-            html_report: htmlReport
+            message: emailReport
           })
         });
 
@@ -949,9 +915,9 @@
           throw new Error(msg);
         }
 
-        showStatus(`Referral letter sent to ${data.email} and help@cognitivewell.org. Please check your inbox (and spam folder).`, 'ok');
+        showStatus(`Referral letter sent to ${data.email}. Please check your inbox (and spam folder).`, 'ok');
       } catch (err) {
-        const mailtoBody = encodeURIComponent(plainReport);
+        const mailtoBody = encodeURIComponent(emailReport);
         const mailto = `mailto:${encodeURIComponent(data.email)}?cc=${encodeURIComponent('help@cognitivewell.org')}&subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
         const detail = err && err.message ? ` ${err.message}` : '';
         showStatus(`Automatic send could not be completed.${detail} Opening your email app as a backup…`, 'err');
