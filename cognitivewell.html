@@ -516,6 +516,13 @@
       border-radius: 999px;
       margin-top: 14px;
       letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a.pill:hover {
+      background: var(--gold);
+      color: white;
     }
     
     .app-links {
@@ -1258,7 +1265,7 @@
             "name": "How do I get screened for MCI?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Cognitive Well offers free 10-minute initial cognitive screenings in community settings such as churches, senior centers, and libraries. No appointment or insurance is required. Sign up via our community form or attend a local event."
+              "text": "Cognitive Well offers free 5-minute initial cognitive screenings in community settings such as churches, senior centers, and libraries. No appointment or insurance is required. Sign up via our community form or attend a local event."
             }
           },
           {
@@ -1513,8 +1520,8 @@
         <div class="program-card">
           <div class="num">01</div>
           <h3 data-i18n="programs.card1.title">Free Initial Cognitive Screening</h3>
-          <p data-i18n="programs.card1.desc">10-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.</p>
-          <div class="pill" data-i18n="programs.card1.pill">FREE • OPEN TO ALL</div>
+          <p data-i18n="programs.card1.desc">5-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.</p>
+          <a href="selfassess.html" class="pill" data-i18n="programs.card1.pill">FREE • OPEN TO ALL</a>
         </div>
         
         <div class="program-card">
@@ -1781,7 +1788,7 @@
 
         <div style="margin-bottom: 24px;">
           <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);" data-i18n="faq.q3">How can I get a free cognitive screening?</h3>
-          <p style="color: var(--muted);" data-i18n="faq.a3">Cognitive Well offers free 10-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank">Sign up for community screening</a> or contact us to host an event.</p>
+          <p style="color: var(--muted);" data-i18n="faq.a3">Cognitive Well offers free 5-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank">Sign up for community screening</a> or contact us to host an event.</p>
         </div>
 
         <div style="margin-bottom: 24px;">
@@ -2022,7 +2029,7 @@
         "programs.title": "From free screening to lasting cognitive wellness.",
         "programs.subtitle": "Evidence-informed, community-delivered services designed to meet people where they are — with dignity, accessibility, and hope.",
         "programs.card1.title": "Free Initial Cognitive Screening",
-        "programs.card1.desc": "10-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.",
+        "programs.card1.desc": "5-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.",
         "programs.card1.pill": "FREE • OPEN TO ALL",
         "programs.card2.title": "Full-scale MCI Assessment",
         "programs.card2.desc": "Validated most accurate protocols with upto 90% of accuracy, delivered in community settings by trained operators. A fraction of traditional clinical cost.",
@@ -2105,7 +2112,7 @@
         "faq.q2": "Can MCI be stopped or reversed?",
         "faq.a2": "Yes. Up to <strong>51%</strong> of people with MCI can return to normal cognition when the condition is identified early and addressed with consistent, multi-domain interventions (nutrition, cognitive training, physical activity, social engagement, and sleep optimization).",
         "faq.q3": "How can I get a free cognitive screening?",
-        "faq.a3": "Cognitive Well offers free 10-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Sign up for community screening</a> or contact us to host an event.",
+        "faq.a3": "Cognitive Well offers free 5-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Sign up for community screening</a> or contact us to host an event.",
         "faq.q4": "What makes Cognitive Well different?",
         "faq.a4": "We are a community-first initiative championed by AppChurch Global Foundation (501(c)(3)). Our model combines free accessible screening, evidence-based support, digital tools (Memory Enhancement & Motor Function apps), and direct physician hand-off — all without the high cost or barriers of traditional clinical pathways.",
         "faq.q5": "Is there a cure for dementia?",
@@ -2158,7 +2165,7 @@
         "faq.q2": "¿Se puede detener o revertir el DCL?",
         "faq.a2": "Sí. Hasta el <strong>51 %</strong> de las personas con DCL pueden volver a una cognición normal cuando la condición se identifica temprano y se aborda con intervenciones consistentes y multidominio (nutrición, entrenamiento cognitivo, actividad física, compromiso social y optimización del sueño).",
         "faq.q3": "¿Cómo puedo obtener una evaluación cognitiva gratuita?",
-        "faq.a3": "Cognitive Well ofrece evaluaciones iniciales gratuitas de 10 minutos en ubicaciones comunitarias (iglesias, centros para personas mayores, bibliotecas). No se requiere cita ni seguro. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Regístrate para una evaluación comunitaria</a> o contáctanos para organizar un evento.",
+        "faq.a3": "Cognitive Well ofrece evaluaciones iniciales gratuitas de 5 minutos en ubicaciones comunitarias (iglesias, centros para personas mayores, bibliotecas). No se requiere cita ni seguro. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Regístrate para una evaluación comunitaria</a> o contáctanos para organizar un evento.",
         "faq.q4": "¿Qué hace diferente a Cognitive Well?",
         "faq.a4": "Somos una iniciativa comunitaria de primera línea impulsada por AppChurch Global Foundation (501(c)(3)). Nuestro modelo combina evaluaciones gratuitas y accesibles, apoyo basado en evidencia, herramientas digitales (aplicaciones Memory Enhancement y Motor Function) y derivación directa al médico, todo sin el alto costo o las barreras de las vías clínicas tradicionales.",
         "faq.q5": "¿Existe una cura para la demencia?",
@@ -2167,7 +2174,7 @@
         "programs.title": "De la evaluación cognitiva gratuita al bienestar duradero.",
         "programs.subtitle": "Brindamos servicios comunitarios basados en la evidencia, diseñados para atender a las personas en su propio entorno con dignidad, amabilidad y esperanza.",
         "programs.card1.title": "Evaluación Cognitiva Inicial Gratuita",
-        "programs.card1.desc": "Evaluación inicial rápida de 10 minutos para comprobar tu rendimiento cognitivo. No se requiere cita previa ni seguro médico.",
+        "programs.card1.desc": "Evaluación inicial rápida de 5 minutos para comprobar tu rendimiento cognitivo. No se requiere cita previa ni seguro médico.",
         "programs.card1.pill": "GRATIS. ABIERTO A TODO PÚBLICO",
         "programs.card2.title": "Evaluaciones completas del Deterioro Cognitivo Leve (DCL)",
         "programs.card2.desc": "Protocolos validados con una precisión de hasta el 90 %, administrados en entornos comunitarios por operadores capacitados. Una alternativa a una fracción del costo clínico tradicional.",
@@ -2291,7 +2298,7 @@
         "faq.q2": "轻度认知障碍可以被阻止或逆转吗？",
         "faq.a2": "是的。当病情被早期发现并通过一致的多领域干预（营养、认知训练、身体活动、社会参与和睡眠优化）时，高达 <strong>51%</strong> 的患者可以恢复正常认知。",
         "faq.q3": "我如何获得免费的认知筛查？",
-        "faq.a3": "Cognitive Well在社区场所（教堂、老年中心、图书馆）提供免费的10分钟初始筛查。无需预约或保险。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">注册社区筛查</a>或联系我们举办活动。",
+        "faq.a3": "Cognitive Well在社区场所（教堂、老年中心、图书馆）提供免费的5分钟初始筛查。无需预约或保险。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">注册社区筛查</a>或联系我们举办活动。",
         "faq.q4": "Cognitive Well有什么不同？",
         "faq.a4": "我们是由AppChurch Global Foundation（501(c)(3)）发起的社区认知健康项目服务。我们的模式结合了免费粗筛、平价精确筛查、基于临床有效案例的数字化认知健复工具（Memory Enhancement和Motor Function应用程序）以及进一步的专业医生转诊。帮助您厘清困惑，跨越昂贵的认知、金钱及时间障碍，抓住不可错过的黄金窗口期，治重疾于未病。",
         "faq.q5": "痴呆症有治愈方法吗？",
@@ -2300,7 +2307,7 @@
         "programs.title": "从免费筛查到持久的认知健康维护。",
         "programs.subtitle": "专业的社区服务，满足社区大众认知健康的需求，并保障隐私。",
         "programs.card1.title": "免费认知健康初筛",
-        "programs.card1.desc": "10分钟快速初筛。无需预约或保险。让您对自己的认知健康掌握主动知情权，以免贻误唯一有效的关键防治窗口期。",
+        "programs.card1.desc": "5分钟快速初筛。无需预约或保险。让您对自己的认知健康掌握主动知情权，以免贻误唯一有效的关键防治窗口期。",
         "programs.card1.pill": "免费 • 向所有人开放",
         "programs.card2.title": "全套认知退化测试",
         "programs.card2.desc": "采用目前全球认知健康领域公认最精准的筛查方法，准确率高达90%，由持照专员提供平价的筛查检测。",
@@ -2424,7 +2431,7 @@
         "faq.q2": "MCI를 멈추거나 되돌릴 수 있나요?",
         "faq.a2": "네. MCI 환자의 최대 <strong>51%</strong>는 조기에 발견하여 일관된 다중 영역 개입(영양, 인지 훈련, 신체 활동, 사회적 참여, 수면 최적화)으로 정상 인지로 돌아갈 수 있습니다.",
         "faq.q3": "무료 인지 검사를 받으려면 어떻게 해야 하나요?",
-        "faq.a3": "Cognitive Well은 지역사회 장소(교회, 노인 센터, 도서관)에서 무료 10분 초기 검사를 제공합니다. 예약이나 보험이 필요 없습니다. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">지역사회 검사 등록</a> 또는 이벤트를 주최하려면 저희에게 연락하세요.",
+        "faq.a3": "Cognitive Well은 지역사회 장소(교회, 노인 센터, 도서관)에서 무료 5분 초기 검사를 제공합니다. 예약이나 보험이 필요 없습니다. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">지역사회 검사 등록</a> 또는 이벤트를 주최하려면 저희에게 연락하세요.",
         "faq.q4": "Cognitive Well은 무엇이 다른가요?",
         "faq.a4": "우리는 AppChurch Global Foundation(501(c)(3))이 주도하는 커뮤니티 중심의 인지 건강 이니셔티브입니다. 우리의 모델은 무료 접근 가능한 검사, 증거 기반 지원, 디지털 도구(Memory Enhancement 및 Motor Function 앱), 직접적인 의사 인계 등을 결합하여 전통적인 임상 경로의 높은 비용이나 장벽 없이 제공합니다.",
         "faq.q5": "치매에 대한 치료법이 있나요?",
@@ -2433,7 +2440,7 @@
         "programs.title": "무료 스크리닝에서 지속적인 인지 웰니스까지.",
         "programs.subtitle": "증거에 기반한 커뮤니티 전달 서비스로, 사람들을 있는 곳에서 만날 수 있도록 설계되었습니다 — 존엄성, 접근성, 희망과 함께.",
         "programs.card1.title": "무료 초기 인지 스크리닝",
-        "programs.card1.desc": "인지 컨디셔닝을 위한 10분 빠른 초기 스크리닝. 예약이나 보험 불필요.",
+        "programs.card1.desc": "인지 컨디셔닝을 위한 5분 빠른 초기 스크리닝. 예약이나 보험 불필요.",
         "programs.card1.pill": "무료 • 모두에게 개방",
         "programs.card2.title": "전면적 MCI 평가",
         "programs.card2.desc": "검증된 가장 정확한 프로토콜, 최대 90% 정확도, 훈련된 운영자가 커뮤니티 환경에서 제공. 전통적인 임상 비용의 일부.",
@@ -2557,7 +2564,7 @@
         "faq.q2": "MCIは止めたり逆転させたりできますか？",
         "faq.a2": "はい。MCI患者の最大 <strong>51%</strong> は、早期に発見され、一貫した多領域介入（栄養、認知訓練、身体活動、社会参加、睡眠最適化）で対処された場合、正常な認知に戻ることができます。",
         "faq.q3": "無料の認知スクリーニングを受けるにはどうすればよいですか？",
-        "faq.a3": "Cognitive Wellはコミュニティの場所（教会、高齢者センター、図書館）で無料の10分間の初期スクリーニングを提供しています。予約や保険は必要ありません。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">コミュニティスクリーニングにサインアップ</a>するか、イベントを主催するためにご連絡ください。",
+        "faq.a3": "Cognitive Wellはコミュニティの場所（教会、高齢者センター、図書館）で無料の5分間の初期スクリーニングを提供しています。予約や保険は必要ありません。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">コミュニティスクリーニングにサインアップ</a>するか、イベントを主催するためにご連絡ください。",
         "faq.q4": "Cognitive Wellの違いは何ですか？",
         "faq.a4": "私たちはAppChurch Global Foundation（501(c)(3)）が主導するコミュニティ第一の認知健康イニシアチブです。私たちのモデルは、無料でアクセス可能なスクリーニング、エビデンスに基づくサポート、デジタルツール（Memory EnhancementおよびMotor Functionアプリ）、および直接の医師引き継ぎを組み合わせ、従来の臨床経路の高コストや障壁なしにすべてを提供します。",
         "faq.q5": "認知症の治療法はありますか？",
@@ -2610,7 +2617,7 @@
         "faq.q2": "Le MCI peut-il être arrêté ou inversé ?",
         "faq.a2": "Oui. Jusqu'à <strong>51 %</strong> des personnes atteintes de MCI peuvent retrouver une cognition normale lorsque la condition est identifiée tôt et traitée par des interventions cohérentes et multidomaines (nutrition, entraînement cognitif, activité physique, engagement social et optimisation du sommeil).",
         "faq.q3": "Comment puis-je obtenir un dépistage cognitif gratuit ?",
-        "faq.a3": "Cognitive Well propose des dépistages initiaux gratuits de 10 minutes dans des lieux communautaires (églises, centres pour personnes âgées, bibliothèques). Aucun rendez-vous ni assurance n'est requis. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Inscrivez-vous pour un dépistage communautaire</a> ou contactez-nous pour organiser un événement.",
+        "faq.a3": "Cognitive Well propose des dépistages initiaux gratuits de 5 minutes dans des lieux communautaires (églises, centres pour personnes âgées, bibliothèques). Aucun rendez-vous ni assurance n'est requis. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Inscrivez-vous pour un dépistage communautaire</a> ou contactez-nous pour organiser un événement.",
         "faq.q4": "Qu'est-ce qui rend Cognitive Well différent ?",
         "faq.a4": "Nous sommes une initiative communautaire de première ligne portée par AppChurch Global Foundation (501(c)(3)). Notre modèle combine un dépistage gratuit et accessible, un soutien fondé sur des preuves, des outils numériques (applications Memory Enhancement et Motor Function) et un transfert direct vers le médecin — le tout sans le coût élevé ou les barrières des parcours cliniques traditionnels.",
         "faq.q5": "Existe-t-il un remède contre la démence ?",
