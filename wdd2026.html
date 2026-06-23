@@ -52,6 +52,7 @@
       font-family: 'Inter', system_ui, -apple-system, sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
     
     h1, h2, h3 {
@@ -82,6 +83,15 @@
       align-items: center;
       justify-content: space-between;
       padding: 16px 0;
+      position: relative;
+      gap: 12px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
     }
     
     .logo {
@@ -238,6 +248,9 @@
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       border: none;
+    }
+
+    .btn-nowrap {
       white-space: nowrap;
     }
     
@@ -580,18 +593,72 @@
     /* Responsive */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-links.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 4px);
+        right: 0;
+        background: white;
+        padding: 16px 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        border: 1px solid var(--rule);
+        gap: 14px;
+        z-index: 200;
+        min-width: 180px;
+      }
       .mobile-menu-btn { display: block; }
-      
+      .nav-cta span { display: none; }
+      .nav-cta { padding: 9px 12px; }
+
+      .hero {
+        min-height: auto;
+      }
+      .hero-content {
+        padding: 56px 0 48px;
+      }
       .hero h1 { font-size: 36px; }
       .hero .subtitle { font-size: 18px; }
-      
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
       .partner-grid {
         grid-template-columns: 1fr;
       }
-      
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      .logo .name {
+        font-size: 16px;
+      }
+      .hero h1 {
+        font-size: 30px;
+      }
+      .section-header h2 {
+        font-size: 26px;
+      }
+      .partner-card .btn {
+        white-space: normal;
+        line-height: 1.35;
       }
     }
     
@@ -617,21 +684,23 @@
         </div>
       </a>
       
-      <div class="nav-links">
-        <a href="/">Home</a>
+      <div class="nav-links" id="nav-links">
+        <a href="cognitivewell.html">Home</a>
         <a href="#events">The Events</a>
         <a href="#partners">Partner With Us</a>
         <a href="#our-partners">Our Partners</a>
       </div>
       
-      <a href="mailto:hello@cognitivewell.org?subject=2026%20World%20Alzheimer%27s%20Day%20Partnership" class="nav-cta">
-        <i class="fa-solid fa-envelope"></i>
-        <span>Contact Us</span>
-      </a>
-      
-      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+      <div class="nav-actions">
+        <a href="mailto:hello@cognitivewell.org?subject=2026%20World%20Alzheimer%27s%20Day%20Partnership" class="nav-cta">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Contact Us</span>
+        </a>
+        
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
   </div>
 </header>
@@ -920,27 +989,23 @@
 
 <script>
   function toggleMobileMenu() {
-    const links = document.querySelector('.nav-links');
+    const links = document.getElementById('nav-links');
     if (!links) return;
-    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-    if (links.style.display === 'flex') {
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '68px';
-      links.style.right = '24px';
-      links.style.background = 'white';
-      links.style.padding = '16px 20px';
-      links.style.borderRadius = '12px';
-      links.style.boxShadow = '0 8px 30px rgba(0,0,0,0.12)';
-      links.style.border = '1px solid #e2e2e2';
-    }
+    const isOpen = links.classList.toggle('is-open');
+    links.style.display = isOpen ? 'flex' : '';
   }
   
-  // Close mobile menu on link click
   document.addEventListener('click', function(e) {
-    const links = document.querySelector('.nav-links');
-    if (links && links.style.display === 'flex' && !e.target.closest('.nav')) {
-      links.style.display = 'none';
+    const links = document.getElementById('nav-links');
+    if (!links || !links.classList.contains('is-open')) return;
+    if (e.target.closest('.nav-links a')) {
+      links.classList.remove('is-open');
+      links.style.display = '';
+      return;
+    }
+    if (!e.target.closest('.nav')) {
+      links.classList.remove('is-open');
+      links.style.display = '';
     }
   });
   
