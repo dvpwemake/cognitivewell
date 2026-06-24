@@ -44,7 +44,10 @@
     
     * { box-sizing: border-box; }
     
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
     
     body {
       margin: 0;
@@ -54,6 +57,11 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: clip;
+    }
+    
+    img, video, svg {
+      max-width: 100%;
+      height: auto;
     }
     
     h1, h2, h3 {
@@ -84,15 +92,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 18px 0;
-      position: relative;
-      gap: 12px;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
     }
     
     .logo {
@@ -196,6 +195,15 @@
       font-size: 22px;
       color: var(--navy);
       cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
     }
     
     /* Hero - Peaceful & Elegant */
@@ -305,32 +313,6 @@
     .btn-outline:hover {
       background: rgba(255,255,255,0.1);
       border-color: white;
-    }
-
-    .support-card .btn-outline {
-      color: var(--navy);
-      border-color: var(--gold);
-      background: transparent;
-    }
-
-    .support-card .btn-outline:hover {
-      background: var(--gold-soft);
-      border-color: var(--gold);
-    }
-
-    .support-actions {
-      display: flex;
-      gap: 6px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-
-    .support-actions .btn {
-      flex: 1 1 calc(50% - 3px);
-      min-width: 0;
-      text-align: center;
-      padding: 7px 8px;
-      font-size: 12px;
     }
     
     /* General Sections */
@@ -552,6 +534,13 @@
       border-radius: 999px;
       margin-top: 14px;
       letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a.pill:hover {
+      background: var(--gold);
+      color: white;
     }
     
     .app-links {
@@ -738,15 +727,47 @@
       line-height: 2.1;
     }
     
+    .footer-col a {
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    
     .footer-bottom {
       border-top: 1px solid rgba(148, 163, 184, 0.2);
       padding-top: 26px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 12px;
       font-size: 13px;
       color: #64748B;
+    }
+    
+    .footer-bottom > div {
+      min-width: 0;
+      line-height: 1.55;
+    }
+    
+    .footer-brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .footer-brand-lockup span {
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .footer-brand-lockup img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
     
     .disclaimer-footer {
@@ -761,87 +782,105 @@
     @media (max-width: 900px) {
       .reality-grid, .about-grid {
         grid-template-columns: 1fr;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
         gap: 32px;
       }
       .nav-links {
         display: none;
       }
-      .nav-links.is-open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: calc(100% + 4px);
-        right: 0;
-        background: white;
-        padding: 16px 20px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        border: 1px solid var(--rule);
-        gap: 14px;
-        z-index: 200;
-        min-width: 200px;
-      }
       .mobile-menu-btn {
         display: block;
-      }
-      .hero {
-        min-height: auto;
-      }
-      .hero-content {
-        padding: 48px 0 64px;
       }
       .hero h1 {
         font-size: 42px;
       }
-      section {
-        padding: 64px 0;
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 32px;
+      }
+      .footer-brand p {
+        max-width: 100%;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .footer-bottom > div {
+        width: 100%;
+        word-break: break-word;
+        overflow-wrap: anywhere;
       }
     }
-
+    
     @media (max-width: 640px) {
       .container {
         padding: 0 16px;
       }
-      .logo .tag {
-        display: none;
+      section {
+        padding: 64px 0;
+      }
+      .nav {
+        padding: 14px 0;
+        gap: 8px;
       }
       .logo .name {
-        font-size: 18px;
-      }
-      .nav-cta span {
-        display: none;
-      }
-      .nav-cta {
-        padding: 10px 12px;
-      }
-      .hero h1 {
-        font-size: 34px;
-      }
-      .hero p {
         font-size: 17px;
       }
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+      .logo .tag {
+        font-size: 9px;
+        letter-spacing: 1px;
       }
-      .hero-actions .btn {
-        width: 100%;
-        justify-content: center;
+      .logo img {
+        width: 36px;
+        height: 36px;
       }
-      .section-header h2 {
-        font-size: 28px;
+      .hero-content {
+        padding: 48px 0 72px;
+      }
+      .hero p {
+        font-size: 18px;
       }
       .section-header p {
-        font-size: 16px;
+        font-size: 17px;
+      }
+      .faces {
+        grid-template-columns: 1fr;
+      }
+      .support-card {
+        padding: 24px 20px;
+      }
+      .program-card {
+        padding: 22px 20px;
+      }
+      footer {
+        padding: 48px 0 28px;
+      }
+      .footer-brand-lockup span {
+        font-size: 18px;
+      }
+      .nav-actions {
+        gap: 8px;
       }
       .segment-status .icon {
         font-size: 42px;
       }
-      .support-actions .btn {
-        flex: 1 1 100%;
+      .segment-status {
+        flex-wrap: wrap;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .nav-cta span {
+        display: none;
+      }
+      .nav-cta {
+        padding: 10px 14px;
+      }
+      .lang-select select {
+        max-width: 108px;
+        font-size: 12px;
+        padding: 4px 6px;
       }
     }
     
@@ -1248,42 +1287,33 @@
     .wdd-banner {
       background: #fef3c7;
       border-bottom: 2px solid #f59e0b;
-      padding: 10px 16px;
+      padding: 10px 12px;
       text-align: center;
       position: relative;
       z-index: 90;
+      width: 100%;
+      overflow: hidden;
     }
 
     .wdd-btn {
       display: inline-flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       background: #b08828;
       color: white;
-      padding: 8px 18px;
-      border-radius: 9999px;
+      padding: 10px 16px;
+      border-radius: 14px;
       font-weight: 700;
       font-size: 13.5px;
       text-decoration: none;
       box-shadow: 0 3px 10px rgba(176, 136, 40, 0.4);
-      transition: all 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       line-height: 1.35;
-      max-width: 100%;
-      text-align: center;
+      max-width: min(100%, 960px);
+      width: 100%;
+      text-align: left;
       animation: wdd-pulse 1.6s infinite ease-in-out;
-    }
-
-    .wdd-btn i {
-      flex-shrink: 0;
-    }
-
-    .wdd-text {
-      text-wrap: balance;
-    }
-
-    .wdd-text-short {
-      display: none;
     }
 
     .wdd-btn:hover {
@@ -1292,34 +1322,50 @@
       box-shadow: 0 4px 12px rgba(176, 136, 40, 0.5);
     }
 
+    .wdd-btn i {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .wdd-btn-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .wdd-title {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    .wdd-sub {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      opacity: 0.95;
+    }
+
     @keyframes wdd-pulse {
       0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.65); }
       50% { box-shadow: 0 0 0 9px rgba(245, 158, 11, 0); }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 640px) {
       .wdd-banner {
-        padding: 8px 12px;
+        padding: 8px 10px;
       }
       .wdd-btn {
-        width: 100%;
+        padding: 10px 12px;
         border-radius: 12px;
-        padding: 10px 14px;
+      }
+      .wdd-title {
         font-size: 12.5px;
       }
-      .wdd-text-full {
-        display: none;
-      }
-      .wdd-text-short {
-        display: inline;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .wdd-btn {
-        font-size: 12px;
-        gap: 6px;
-        padding: 9px 12px;
+      .wdd-sub {
+        font-size: 11.5px;
       }
     }
   </style>
@@ -1403,7 +1449,7 @@
             "name": "How do I get screened for MCI?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Cognitive Well offers free 10-minute initial cognitive screenings in community settings such as churches, senior centers, and libraries. No appointment or insurance is required. Sign up via our community form or attend a local event."
+              "text": "Cognitive Well offers free 5-minute initial cognitive screenings in community settings such as churches, senior centers, and libraries. No appointment or insurance is required. Sign up via our community form or attend a local event."
             }
           },
           {
@@ -1457,7 +1503,7 @@
               <option value="fr">🇫🇷 Français</option>
             </select>
           </div>
-          <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
         </div>
       </nav>
     </div>
@@ -1467,9 +1513,9 @@
   <div class="wdd-banner">
     <a href="wdd2026.html" class="wdd-btn">
       <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
-      <span class="wdd-text">
-        <span class="wdd-text-full">World Alzheimer's Day 2026: Free Early Dementia Screenings • Sept 1–26 (NY • NJ • CA) — Partner &amp; Sponsor Now →</span>
-        <span class="wdd-text-short">World Alzheimer's Day 2026 — Free Screenings Sept 1–26 (NY • NJ • CA) →</span>
+      <span class="wdd-btn-copy">
+        <strong class="wdd-title">World Alzheimer's Day 2026: Free Early Dementia Screenings</strong>
+        <span class="wdd-sub">Sept 1–26 (NY • NJ • CA) — Partner &amp; Sponsor Now →</span>
       </span>
     </a>
   </div>
@@ -1661,8 +1707,8 @@
         <div class="program-card">
           <div class="num">01</div>
           <h3 data-i18n="programs.card1.title">Free Initial Cognitive Screening</h3>
-          <p data-i18n="programs.card1.desc">10-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.</p>
-          <div class="pill" data-i18n="programs.card1.pill">FREE • OPEN TO ALL</div>
+          <p data-i18n="programs.card1.desc">5-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.</p>
+          <a href="selfassess.html" class="pill" data-i18n="programs.card1.pill">FREE • OPEN TO ALL</a>
         </div>
         
         <div class="program-card">
@@ -1822,9 +1868,9 @@
           <img src="img/bci2.jpg" alt="Cognitive technology and community partnership for MCI screening and brain health programs" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
           <strong data-i18n="support.gov.title">Government Agencies &amp; Public Health</strong>
           <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.gov.desc">Grant funding, referrals, co-led programs, aging services collaboration.</p>
-          <div class="support-actions">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" data-i18n="support.gov.action">Explore Collaboration</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Government%20Partnership" class="btn" style="background:#f1eade; color:var(--ink);" data-i18n="support.gov.contact">Contact Us</a>
+          <div style="display:flex; gap:6px; margin-top:12px;">
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.gov.action">Explore Collaboration</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Government%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.gov.contact">Contact Us</a>
           </div>
         </div>
 
@@ -1833,9 +1879,9 @@
           <img src="img/cw2.jpg" alt="Community venue hosts for free cognitive wellness and MCI screening events" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
           <strong data-i18n="support.venue.title">Venue Hosts &amp; Community Centers</strong>
           <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.venue.desc">Churches, senior centers, libraries, parks — host screenings and events.</p>
-          <div class="support-actions">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" data-i18n="support.venue.action">Host an Event</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Venue%20Host" class="btn" style="background:#f1eade; color:var(--ink);" data-i18n="support.venue.contact">Contact Us</a>
+          <div style="display:flex; gap:6px; margin-top:12px;">
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.venue.action">Host an Event</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Venue%20Host" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.venue.contact">Contact Us</a>
           </div>
         </div>
 
@@ -1844,9 +1890,9 @@
           <img src="img/bci3.jpg" alt="Innovative partnerships for advanced cognitive health technology and community brain wellness programs" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
           <strong data-i18n="support.business.title">Businesses, Foundations &amp; Donors</strong>
           <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.business.desc">Corporate giving, sponsorship, employee programs, matching gifts.</p>
-          <div class="support-actions">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" data-i18n="support.business.action">Become a Partner</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Corporate%20Partnership" class="btn" style="background:#f1eade; color:var(--ink);" data-i18n="support.business.contact">Contact Us</a>
+          <div style="display:flex; gap:6px; margin-top:12px;">
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.business.action">Become a Partner</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Corporate%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.business.contact">Contact Us</a>
           </div>
         </div>
 
@@ -1855,9 +1901,9 @@
           <img src="img/cw4.jpg" alt="Healthcare and senior care collaboration for MCI intervention and cognitive wellness support" style="width:100%; height:110px; object-fit:cover; border-radius:10px; margin-bottom:12px;">
           <strong data-i18n="support.health.title">Healthcare, Senior Care &amp; Operators</strong>
           <p style="font-size:13.5px; color:var(--muted); margin:8px 0;" data-i18n="support.health.desc">Clinical collaboration, referrals, volunteer staffing, co-promotion.</p>
-          <div class="support-actions">
-            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" data-i18n="support.health.action">Collaborate With Us</a>
-            <a href="mailto:hello@cognitivewell.org?subject=Healthcare%20Partnership" class="btn" style="background:#f1eade; color:var(--ink);" data-i18n="support.health.contact">Contact Us</a>
+          <div style="display:flex; gap:6px; margin-top:12px;">
+            <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank" class="btn btn-outline" style="flex:1; text-align:center; padding:7px 8px; font-size:12px;" data-i18n="support.health.action">Collaborate With Us</a>
+            <a href="mailto:hello@cognitivewell.org?subject=Healthcare%20Partnership" class="btn" style="flex:1; text-align:center; background:#f1eade; color:var(--ink); padding:7px 8px; font-size:12px;" data-i18n="support.health.contact">Contact Us</a>
           </div>
         </div>
       </div>
@@ -1929,7 +1975,7 @@
 
         <div style="margin-bottom: 24px;">
           <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--navy);" data-i18n="faq.q3">How can I get a free cognitive screening?</h3>
-          <p style="color: var(--muted);" data-i18n="faq.a3">Cognitive Well offers free 10-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank">Sign up for community screening</a> or contact us to host an event.</p>
+          <p style="color: var(--muted);" data-i18n="faq.a3">Cognitive Well offers free 5-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href="https://forms.gle/py6zza7LCBUbnavE6" target="_blank">Sign up for community screening</a> or contact us to host an event.</p>
         </div>
 
         <div style="margin-bottom: 24px;">
@@ -2050,9 +2096,9 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo" style="margin-bottom:12px;">
-            <img src="img/CognitiveWell_logo_sm.png" alt="Cognitive Well logo" style="width:38px;height:38px;">
-            <span style="color:white; font-size:20px; font-weight:700;">Cognitive Well</span>
+          <div class="footer-brand-lockup">
+            <img src="img/CognitiveWell_logo_sm.png" alt="Cognitive Well logo">
+            <span>Cognitive Well</span>
           </div>
           <p data-i18n="footer.brand_desc">A community-based cognitive health and wellness initiative. Early awareness. Compassionate support. Lasting hope.</p>
         </div>
@@ -2089,23 +2135,21 @@
   <script>
     function toggleMobileMenu() {
       const links = document.getElementById('nav-links');
-      const isOpen = links.classList.toggle('is-open');
-      links.style.display = isOpen ? 'flex' : '';
+      if (links.style.display === 'flex') {
+        links.style.display = 'none';
+      } else {
+        links.style.display = 'flex';
+        links.style.flexDirection = 'column';
+        links.style.position = 'absolute';
+        links.style.top = '70px';
+        links.style.right = '24px';
+        links.style.background = 'white';
+        links.style.padding = '20px';
+        links.style.borderRadius = '12px';
+        links.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        links.style.gap = '16px';
+      }
     }
-
-    document.addEventListener('click', function(e) {
-      const links = document.getElementById('nav-links');
-      if (!links || !links.classList.contains('is-open')) return;
-      if (e.target.closest('.nav-links a')) {
-        links.classList.remove('is-open');
-        links.style.display = '';
-        return;
-      }
-      if (!e.target.closest('.nav')) {
-        links.classList.remove('is-open');
-        links.style.display = '';
-      }
-    });
     
     // Simple active nav highlight on scroll
     window.addEventListener('scroll', () => {
@@ -2172,7 +2216,7 @@
         "programs.title": "From free screening to lasting cognitive wellness.",
         "programs.subtitle": "Evidence-informed, community-delivered services designed to meet people where they are — with dignity, accessibility, and hope.",
         "programs.card1.title": "Free Initial Cognitive Screening",
-        "programs.card1.desc": "10-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.",
+        "programs.card1.desc": "5-minute, fast initial screening for cognitive conditiong. No appointment or insurance required.",
         "programs.card1.pill": "FREE • OPEN TO ALL",
         "programs.card2.title": "Full-scale MCI Assessment",
         "programs.card2.desc": "Validated most accurate protocols with upto 90% of accuracy, delivered in community settings by trained operators. A fraction of traditional clinical cost.",
@@ -2255,7 +2299,7 @@
         "faq.q2": "Can MCI be stopped or reversed?",
         "faq.a2": "Yes. Up to <strong>51%</strong> of people with MCI can return to normal cognition when the condition is identified early and addressed with consistent, multi-domain interventions (nutrition, cognitive training, physical activity, social engagement, and sleep optimization).",
         "faq.q3": "How can I get a free cognitive screening?",
-        "faq.a3": "Cognitive Well offers free 10-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Sign up for community screening</a> or contact us to host an event.",
+        "faq.a3": "Cognitive Well offers free 5-minute initial screenings at community locations (churches, senior centers, libraries). No appointment or insurance is required. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Sign up for community screening</a> or contact us to host an event.",
         "faq.q4": "What makes Cognitive Well different?",
         "faq.a4": "We are a community-first initiative championed by AppChurch Global Foundation (501(c)(3)). Our model combines free accessible screening, evidence-based support, digital tools (Memory Enhancement & Motor Function apps), and direct physician hand-off — all without the high cost or barriers of traditional clinical pathways.",
         "faq.q5": "Is there a cure for dementia?",
@@ -2308,7 +2352,7 @@
         "faq.q2": "¿Se puede detener o revertir el DCL?",
         "faq.a2": "Sí. Hasta el <strong>51 %</strong> de las personas con DCL pueden volver a una cognición normal cuando la condición se identifica temprano y se aborda con intervenciones consistentes y multidominio (nutrición, entrenamiento cognitivo, actividad física, compromiso social y optimización del sueño).",
         "faq.q3": "¿Cómo puedo obtener una evaluación cognitiva gratuita?",
-        "faq.a3": "Cognitive Well ofrece evaluaciones iniciales gratuitas de 10 minutos en ubicaciones comunitarias (iglesias, centros para personas mayores, bibliotecas). No se requiere cita ni seguro. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Regístrate para una evaluación comunitaria</a> o contáctanos para organizar un evento.",
+        "faq.a3": "Cognitive Well ofrece evaluaciones iniciales gratuitas de 5 minutos en ubicaciones comunitarias (iglesias, centros para personas mayores, bibliotecas). No se requiere cita ni seguro. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Regístrate para una evaluación comunitaria</a> o contáctanos para organizar un evento.",
         "faq.q4": "¿Qué hace diferente a Cognitive Well?",
         "faq.a4": "Somos una iniciativa comunitaria de primera línea impulsada por AppChurch Global Foundation (501(c)(3)). Nuestro modelo combina evaluaciones gratuitas y accesibles, apoyo basado en evidencia, herramientas digitales (aplicaciones Memory Enhancement y Motor Function) y derivación directa al médico, todo sin el alto costo o las barreras de las vías clínicas tradicionales.",
         "faq.q5": "¿Existe una cura para la demencia?",
@@ -2317,7 +2361,7 @@
         "programs.title": "De la evaluación cognitiva gratuita al bienestar duradero.",
         "programs.subtitle": "Brindamos servicios comunitarios basados en la evidencia, diseñados para atender a las personas en su propio entorno con dignidad, amabilidad y esperanza.",
         "programs.card1.title": "Evaluación Cognitiva Inicial Gratuita",
-        "programs.card1.desc": "Evaluación inicial rápida de 10 minutos para comprobar tu rendimiento cognitivo. No se requiere cita previa ni seguro médico.",
+        "programs.card1.desc": "Evaluación inicial rápida de 5 minutos para comprobar tu rendimiento cognitivo. No se requiere cita previa ni seguro médico.",
         "programs.card1.pill": "GRATIS. ABIERTO A TODO PÚBLICO",
         "programs.card2.title": "Evaluaciones completas del Deterioro Cognitivo Leve (DCL)",
         "programs.card2.desc": "Protocolos validados con una precisión de hasta el 90 %, administrados en entornos comunitarios por operadores capacitados. Una alternativa a una fracción del costo clínico tradicional.",
@@ -2441,7 +2485,7 @@
         "faq.q2": "轻度认知障碍可以被阻止或逆转吗？",
         "faq.a2": "是的。当病情被早期发现并通过一致的多领域干预（营养、认知训练、身体活动、社会参与和睡眠优化）时，高达 <strong>51%</strong> 的患者可以恢复正常认知。",
         "faq.q3": "我如何获得免费的认知筛查？",
-        "faq.a3": "Cognitive Well在社区场所（教堂、老年中心、图书馆）提供免费的10分钟初始筛查。无需预约或保险。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">注册社区筛查</a>或联系我们举办活动。",
+        "faq.a3": "Cognitive Well在社区场所（教堂、老年中心、图书馆）提供免费的5分钟初始筛查。无需预约或保险。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">注册社区筛查</a>或联系我们举办活动。",
         "faq.q4": "Cognitive Well有什么不同？",
         "faq.a4": "我们是由AppChurch Global Foundation（501(c)(3)）发起的社区认知健康项目服务。我们的模式结合了免费粗筛、平价精确筛查、基于临床有效案例的数字化认知健复工具（Memory Enhancement和Motor Function应用程序）以及进一步的专业医生转诊。帮助您厘清困惑，跨越昂贵的认知、金钱及时间障碍，抓住不可错过的黄金窗口期，治重疾于未病。",
         "faq.q5": "痴呆症有治愈方法吗？",
@@ -2450,7 +2494,7 @@
         "programs.title": "从免费筛查到持久的认知健康维护。",
         "programs.subtitle": "专业的社区服务，满足社区大众认知健康的需求，并保障隐私。",
         "programs.card1.title": "免费认知健康初筛",
-        "programs.card1.desc": "10分钟快速初筛。无需预约或保险。让您对自己的认知健康掌握主动知情权，以免贻误唯一有效的关键防治窗口期。",
+        "programs.card1.desc": "5分钟快速初筛。无需预约或保险。让您对自己的认知健康掌握主动知情权，以免贻误唯一有效的关键防治窗口期。",
         "programs.card1.pill": "免费 • 向所有人开放",
         "programs.card2.title": "全套认知退化测试",
         "programs.card2.desc": "采用目前全球认知健康领域公认最精准的筛查方法，准确率高达90%，由持照专员提供平价的筛查检测。",
@@ -2574,7 +2618,7 @@
         "faq.q2": "MCI를 멈추거나 되돌릴 수 있나요?",
         "faq.a2": "네. MCI 환자의 최대 <strong>51%</strong>는 조기에 발견하여 일관된 다중 영역 개입(영양, 인지 훈련, 신체 활동, 사회적 참여, 수면 최적화)으로 정상 인지로 돌아갈 수 있습니다.",
         "faq.q3": "무료 인지 검사를 받으려면 어떻게 해야 하나요?",
-        "faq.a3": "Cognitive Well은 지역사회 장소(교회, 노인 센터, 도서관)에서 무료 10분 초기 검사를 제공합니다. 예약이나 보험이 필요 없습니다. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">지역사회 검사 등록</a> 또는 이벤트를 주최하려면 저희에게 연락하세요.",
+        "faq.a3": "Cognitive Well은 지역사회 장소(교회, 노인 센터, 도서관)에서 무료 5분 초기 검사를 제공합니다. 예약이나 보험이 필요 없습니다. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">지역사회 검사 등록</a> 또는 이벤트를 주최하려면 저희에게 연락하세요.",
         "faq.q4": "Cognitive Well은 무엇이 다른가요?",
         "faq.a4": "우리는 AppChurch Global Foundation(501(c)(3))이 주도하는 커뮤니티 중심의 인지 건강 이니셔티브입니다. 우리의 모델은 무료 접근 가능한 검사, 증거 기반 지원, 디지털 도구(Memory Enhancement 및 Motor Function 앱), 직접적인 의사 인계 등을 결합하여 전통적인 임상 경로의 높은 비용이나 장벽 없이 제공합니다.",
         "faq.q5": "치매에 대한 치료법이 있나요?",
@@ -2583,7 +2627,7 @@
         "programs.title": "무료 스크리닝에서 지속적인 인지 웰니스까지.",
         "programs.subtitle": "증거에 기반한 커뮤니티 전달 서비스로, 사람들을 있는 곳에서 만날 수 있도록 설계되었습니다 — 존엄성, 접근성, 희망과 함께.",
         "programs.card1.title": "무료 초기 인지 스크리닝",
-        "programs.card1.desc": "인지 컨디셔닝을 위한 10분 빠른 초기 스크리닝. 예약이나 보험 불필요.",
+        "programs.card1.desc": "인지 컨디셔닝을 위한 5분 빠른 초기 스크리닝. 예약이나 보험 불필요.",
         "programs.card1.pill": "무료 • 모두에게 개방",
         "programs.card2.title": "전면적 MCI 평가",
         "programs.card2.desc": "검증된 가장 정확한 프로토콜, 최대 90% 정확도, 훈련된 운영자가 커뮤니티 환경에서 제공. 전통적인 임상 비용의 일부.",
@@ -2707,7 +2751,7 @@
         "faq.q2": "MCIは止めたり逆転させたりできますか？",
         "faq.a2": "はい。MCI患者の最大 <strong>51%</strong> は、早期に発見され、一貫した多領域介入（栄養、認知訓練、身体活動、社会参加、睡眠最適化）で対処された場合、正常な認知に戻ることができます。",
         "faq.q3": "無料の認知スクリーニングを受けるにはどうすればよいですか？",
-        "faq.a3": "Cognitive Wellはコミュニティの場所（教会、高齢者センター、図書館）で無料の10分間の初期スクリーニングを提供しています。予約や保険は必要ありません。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">コミュニティスクリーニングにサインアップ</a>するか、イベントを主催するためにご連絡ください。",
+        "faq.a3": "Cognitive Wellはコミュニティの場所（教会、高齢者センター、図書館）で無料の5分間の初期スクリーニングを提供しています。予約や保険は必要ありません。<a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">コミュニティスクリーニングにサインアップ</a>するか、イベントを主催するためにご連絡ください。",
         "faq.q4": "Cognitive Wellの違いは何ですか？",
         "faq.a4": "私たちはAppChurch Global Foundation（501(c)(3)）が主導するコミュニティ第一の認知健康イニシアチブです。私たちのモデルは、無料でアクセス可能なスクリーニング、エビデンスに基づくサポート、デジタルツール（Memory EnhancementおよびMotor Functionアプリ）、および直接の医師引き継ぎを組み合わせ、従来の臨床経路の高コストや障壁なしにすべてを提供します。",
         "faq.q5": "認知症の治療法はありますか？",
@@ -2760,7 +2804,7 @@
         "faq.q2": "Le MCI peut-il être arrêté ou inversé ?",
         "faq.a2": "Oui. Jusqu'à <strong>51 %</strong> des personnes atteintes de MCI peuvent retrouver une cognition normale lorsque la condition est identifiée tôt et traitée par des interventions cohérentes et multidomaines (nutrition, entraînement cognitif, activité physique, engagement social et optimisation du sommeil).",
         "faq.q3": "Comment puis-je obtenir un dépistage cognitif gratuit ?",
-        "faq.a3": "Cognitive Well propose des dépistages initiaux gratuits de 10 minutes dans des lieux communautaires (églises, centres pour personnes âgées, bibliothèques). Aucun rendez-vous ni assurance n'est requis. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Inscrivez-vous pour un dépistage communautaire</a> ou contactez-nous pour organiser un événement.",
+        "faq.a3": "Cognitive Well propose des dépistages initiaux gratuits de 5 minutes dans des lieux communautaires (églises, centres pour personnes âgées, bibliothèques). Aucun rendez-vous ni assurance n'est requis. <a href=\"https://forms.gle/py6zza7LCBUbnavE6\" target=\"_blank\">Inscrivez-vous pour un dépistage communautaire</a> ou contactez-nous pour organiser un événement.",
         "faq.q4": "Qu'est-ce qui rend Cognitive Well différent ?",
         "faq.a4": "Nous sommes une initiative communautaire de première ligne portée par AppChurch Global Foundation (501(c)(3)). Notre modèle combine un dépistage gratuit et accessible, un soutien fondé sur des preuves, des outils numériques (applications Memory Enhancement et Motor Function) et un transfert direct vers le médecin — le tout sans le coût élevé ou les barrières des parcours cliniques traditionnels.",
         "faq.q5": "Existe-t-il un remède contre la démence ?",
